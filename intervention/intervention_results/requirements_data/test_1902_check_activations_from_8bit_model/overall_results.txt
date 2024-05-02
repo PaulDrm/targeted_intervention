@@ -1,0 +1,22 @@
+Train data: Precision: 0, Recall: 0 for fold 0 and alpha 35.0 and number of heads 4
+predict
+no           44
+undefined     3
+Name: count, dtype: int64
+Valid data: Precision: 0, Recall: 0 for fold 0 and alpha 35.0 and number of heads 4
+predict
+no           36
+undefined    10
+Name: count, dtype: int64
+Predictions on 0602 dataset
+Train data: Precision: 0, Recall: 0 for fold 0 and alpha 35.0 and number of heads 4
+predict
+no           44
+undefined     3
+Name: count, dtype: int64
+Valid data: Precision: 1.0, Recall: 0.029411764705882353 for fold 0 and alpha 35.0 and number of heads 4
+predict
+no           135
+undefined     35
+yes            4
+Name: count, dtype: int64

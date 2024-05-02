@@ -1,0 +1,422 @@
+
+alpha: 15 K: 48
+[array([ 0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11, 12])]
+Running fold 0
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 32/32 [00:00<00:00, 33.26it/s]
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+You are using a model of type mistral to instantiate a model of type llama. This is not supported for all configurations of models and can yield errors.
+Loading checkpoint shards:   0%|                                                                                                        | 0/2 [00:00<?, ?it/s]/home/paul/miniconda3/envs/iti/lib/python3.8/site-packages/torch/_utils.py:831: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+Loading checkpoint shards: 100%|████████████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:04<00:00,  2.24s/it]
+/home/paul/miniconda3/envs/iti/lib/python3.8/site-packages/transformers/generation/configuration_utils.py:392: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.5` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`. This was detected when initializing the generation config instance, which means the corresponding file may hold incorrect parameterization and should be fixed.
+  warnings.warn(
+0it [00:00, ?it/s]2024-02-04 20:01:34.742057: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+27it [14:32, 32.31s/it]
+   req_id                                             prompt                                             output final_answer    predict  score
+0  RQ-8-3  GPT4 Correct User:System: |Structure, Shieldin...  \n\n1. Structure, Shielding, & Storage directl...    undefined  undefined   1.00
+1  RQ-8-3  GPT4 Correct User:System: |Structure, Shieldin...  \n\nThe Logical System contains an Air Loop, w...         True        yes   0.70
+2  RQ-8-3  GPT4 Correct User:System: |Structure, Shieldin...  \n\nThe settlement is described as a "Logical ...         True        yes   0.78
+Precision: 0.0, Recall: 0.0 for fold 0 and alpha 15.0 and number of heads 48
+
+
+alpha: 15 K: 64
+[array([ 0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11, 12])]
+Running fold 0
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 32/32 [00:00<00:00, 33.52it/s]
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+You are using a model of type mistral to instantiate a model of type llama. This is not supported for all configurations of models and can yield errors.
+Loading checkpoint shards:   0%|                                                                                                        | 0/2 [00:00<?, ?it/s]/home/paul/miniconda3/envs/iti/lib/python3.8/site-packages/torch/_utils.py:831: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+Loading checkpoint shards: 100%|████████████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:04<00:00,  2.26s/it]
+/home/paul/miniconda3/envs/iti/lib/python3.8/site-packages/transformers/generation/configuration_utils.py:392: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.5` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`. This was detected when initializing the generation config instance, which means the corresponding file may hold incorrect parameterization and should be fixed.
+  warnings.warn(
+0it [00:00, ?it/s]2024-02-04 20:16:20.087092: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+27it [17:54, 39.81s/it]
+   req_id                                             prompt                                             output final_answer    predict  score
+0  RQ-8-3  GPT4 Correct User:System: |Structure, Shieldin...  \n\n1. Structure, Shielding, & Storage directl...    undefined  undefined   1.00
+1  RQ-8-3  GPT4 Correct User:System: |Structure, Shieldin...  \n\nThe Logical System contains an Air Loop, w...         True        yes   0.87
+2  RQ-8-3  GPT4 Correct User:System: |Structure, Shieldin...  \n\n1. The system contains an Air Loop, which ...         True        yes   0.21
+Precision: 0.0, Recall: 0.0 for fold 0 and alpha 15.0 and number of heads 64
+
+
+alpha: 15 K: 80
+[array([ 0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11, 12])]
+Running fold 0
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 32/32 [00:00<00:00, 32.93it/s]
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+You are using a model of type mistral to instantiate a model of type llama. This is not supported for all configurations of models and can yield errors.
+Loading checkpoint shards:   0%|                                                                                                        | 0/2 [00:00<?, ?it/s]/home/paul/miniconda3/envs/iti/lib/python3.8/site-packages/torch/_utils.py:831: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+Loading checkpoint shards: 100%|████████████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:04<00:00,  2.29s/it]
+/home/paul/miniconda3/envs/iti/lib/python3.8/site-packages/transformers/generation/configuration_utils.py:392: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.5` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`. This was detected when initializing the generation config instance, which means the corresponding file may hold incorrect parameterization and should be fixed.
+  warnings.warn(
+0it [00:00, ?it/s]2024-02-04 20:34:28.058728: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+27it [18:11, 40.43s/it]
+   req_id                                             prompt                                             output final_answer predict  score
+0  RQ-8-3  GPT4 Correct User:System: |Structure, Shieldin...  \n1. The System describes a settlement that in...        False      no   1.00
+1  RQ-8-3  GPT4 Correct User:System: |Structure, Shieldin...  \n\nThe Logical System contains an Air Loop, w...         True     yes   0.44
+2  RQ-8-3  GPT4 Correct User:System: |Structure, Shieldin...  \n\n1. The settlement system contains a struct...        False      no   1.00
+Precision: 0.3, Recall: 0.75 for fold 0 and alpha 15.0 and number of heads 80
+
+
+alpha: 15 K: 96
+[array([ 0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11, 12])]
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 32/32 [00:00<00:00, 33.20it/s]
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+You are using a model of type mistral to instantiate a model of type llama. This is not supported for all configurations of models and can yield errors.
+Loading checkpoint shards:   0%|                                                                                                        | 0/2 [00:00<?, ?it/s]/home/paul/miniconda3/envs/iti/lib/python3.8/site-packages/torch/_utils.py:831: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+Loading checkpoint shards: 100%|████████████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:04<00:00,  2.31s/it]
+/home/paul/miniconda3/envs/iti/lib/python3.8/site-packages/transformers/generation/configuration_utils.py:392: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.5` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`. This was detected when initializing the generation config instance, which means the corresponding file may hold incorrect parameterization and should be fixed.
+  warnings.warn(
+0it [00:00, ?it/s]2024-02-04 20:52:52.711311: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+27it [13:21, 29.70s/it]
+   req_id                                             prompt                                             output final_answer    predict  score
+0  RQ-8-3  GPT4 Correct User:System: |Structure, Shieldin...  \n1. The Logical System directly contains an A...         True        yes   0.65
+1  RQ-8-3  GPT4 Correct User:System: |Structure, Shieldin...  \n\n1. Structure, Shielding, & Storage:\n   - ...    undefined  undefined   0.84
+2  RQ-8-3  GPT4 Correct User:System: |Structure, Shieldin...  \n\n1. Identify the relevant parts of the Syst...        False         no   1.00
+Precision: 0.125, Recall: 1.0 for fold 0 and alpha 15.0 and number of heads 96
+
+
+alpha: 20 K: 48
+[array([ 0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11, 12])]
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 32/32 [00:00<00:00, 33.28it/s]
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+You are using a model of type mistral to instantiate a model of type llama. This is not supported for all configurations of models and can yield errors.
+Loading checkpoint shards:   0%|                                                                                                        | 0/2 [00:00<?, ?it/s]/home/paul/miniconda3/envs/iti/lib/python3.8/site-packages/torch/_utils.py:831: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+Loading checkpoint shards: 100%|████████████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:04<00:00,  2.28s/it]
+/home/paul/miniconda3/envs/iti/lib/python3.8/site-packages/transformers/generation/configuration_utils.py:392: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.5` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`. This was detected when initializing the generation config instance, which means the corresponding file may hold incorrect parameterization and should be fixed.
+  warnings.warn(
+0it [00:00, ?it/s]2024-02-04 21:06:27.589142: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+27it [21:16, 47.27s/it]
+   req_id                                             prompt                                             output final_answer    predict  score
+0  RQ-8-3  GPT4 Correct User:System: |Structure, Shieldin...  \n\n1. Structure, Shielding, & Storage directl...    undefined  undefined   1.00
+1  RQ-8-3  GPT4 Correct User:System: |Structure, Shieldin...  \n\n1. The Logical System directly contains an...         True        yes   0.65
+2  RQ-8-3  GPT4 Correct User:System: |Structure, Shieldin...  \n\n1. Structure, Shielding, & Storage: This c...         True        yes   0.78
+Precision: 0, Recall: 0 for fold 0 and alpha 20.0 and number of heads 48
+
+
+alpha: 20 K: 64
+[array([ 0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11, 12])]
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 32/32 [00:00<00:00, 33.21it/s]
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+You are using a model of type mistral to instantiate a model of type llama. This is not supported for all configurations of models and can yield errors.
+Loading checkpoint shards:   0%|                                                                                                        | 0/2 [00:00<?, ?it/s]/home/paul/miniconda3/envs/iti/lib/python3.8/site-packages/torch/_utils.py:831: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+Loading checkpoint shards: 100%|████████████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:04<00:00,  2.27s/it]
+/home/paul/miniconda3/envs/iti/lib/python3.8/site-packages/transformers/generation/configuration_utils.py:392: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.5` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`. This was detected when initializing the generation config instance, which means the corresponding file may hold incorrect parameterization and should be fixed.
+  warnings.warn(
+0it [00:00, ?it/s]2024-02-04 21:27:56.854985: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+27it [26:22, 58.60s/it]
+   req_id                                             prompt                                             output final_answer    predict  score
+0  RQ-8-3  GPT4 Correct User:System: |Structure, Shieldin...  \n\n1. Structure, Shielding, & Storage directl...    undefined  undefined   0.62
+1  RQ-8-3  GPT4 Correct User:System: |Structure, Shieldin...  \n\nThe Logical System contains an Air Loop, w...    undefined  undefined   1.00
+2  RQ-8-3  GPT4 Correct User:System: |Structure, Shieldin...  \n\nThe system consists of two main components...    undefined  undefined   1.00
+Precision: 0.5, Recall: 0.25 for fold 0 and alpha 20.0 and number of heads 64
+
+
+alpha: 20 K: 80
+[array([ 0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11, 12])]
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 32/32 [00:00<00:00, 32.99it/s]
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+You are using a model of type mistral to instantiate a model of type llama. This is not supported for all configurations of models and can yield errors.
+Loading checkpoint shards:   0%|                                                                                                        | 0/2 [00:00<?, ?it/s]/home/paul/miniconda3/envs/iti/lib/python3.8/site-packages/torch/_utils.py:831: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+Loading checkpoint shards: 100%|████████████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:04<00:00,  2.25s/it]
+/home/paul/miniconda3/envs/iti/lib/python3.8/site-packages/transformers/generation/configuration_utils.py:392: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.5` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`. This was detected when initializing the generation config instance, which means the corresponding file may hold incorrect parameterization and should be fixed.
+  warnings.warn(
+0it [00:00, ?it/s]2024-02-04 21:54:31.971353: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+27it [26:17, 58.43s/it]
+   req_id                                             prompt                                             output final_answer    predict  score
+0  RQ-8-3  GPT4 Correct User:System: |Structure, Shieldin...  \n1. The Structure, Shielding, & Storage direc...    undefined  undefined   0.79
+1  RQ-8-3  GPT4 Correct User:System: |Structure, Shieldin...  \n\nThe Logical System directly contains an Ai...    undefined  undefined   1.00
+2  RQ-8-3  GPT4 Correct User:System: |Structure, Shieldin...  \n\n1. Structure, Shielding, & Storage:\n   - ...         True        yes   0.79
+Precision: 0.0, Recall: 0.0 for fold 0 and alpha 20.0 and number of heads 80
+
+
+alpha: 20 K: 96
+[array([ 0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11, 12])]
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 32/32 [00:00<00:00, 33.44it/s]
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+You are using a model of type mistral to instantiate a model of type llama. This is not supported for all configurations of models and can yield errors.
+Loading checkpoint shards:   0%|                                                                                                        | 0/2 [00:00<?, ?it/s]/home/paul/miniconda3/envs/iti/lib/python3.8/site-packages/torch/_utils.py:831: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+Loading checkpoint shards: 100%|████████████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:04<00:00,  2.37s/it]
+/home/paul/miniconda3/envs/iti/lib/python3.8/site-packages/transformers/generation/configuration_utils.py:392: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.5` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`. This was detected when initializing the generation config instance, which means the corresponding file may hold incorrect parameterization and should be fixed.
+  warnings.warn(
+0it [00:00, ?it/s]2024-02-04 22:21:02.991229: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+27it [27:14, 60.54s/it]
+   req_id                                             prompt                                             output final_answer    predict  score
+0  RQ-8-3  GPT4 Correct User:System: |Structure, Shieldin...  \n1. We need to identify the Logical System co...        False         no    1.0
+1  RQ-8-3  GPT4 Correct User:System: |Structure, Shieldin...  \n\nThe Logical System directly contains a Wat...    undefined  undefined    1.0
+2  RQ-8-3  GPT4 Correct User:System: |Structure, Shieldin...  \n\n1. Structure, Shielding, & Storage directl...    undefined  undefined    1.0
+Precision: 0.0, Recall: 0.0 for fold 0 and alpha 20.0 and number of heads 96
+
+
+alpha: 25 K: 48
+[array([ 0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11, 12])]
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 32/32 [00:00<00:00, 33.20it/s]
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+You are using a model of type mistral to instantiate a model of type llama. This is not supported for all configurations of models and can yield errors.
+Loading checkpoint shards:   0%|                                                                                                        | 0/2 [00:00<?, ?it/s]/home/paul/miniconda3/envs/iti/lib/python3.8/site-packages/torch/_utils.py:831: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+Loading checkpoint shards: 100%|████████████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:04<00:00,  2.33s/it]
+/home/paul/miniconda3/envs/iti/lib/python3.8/site-packages/transformers/generation/configuration_utils.py:392: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.5` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`. This was detected when initializing the generation config instance, which means the corresponding file may hold incorrect parameterization and should be fixed.
+  warnings.warn(
+0it [00:00, ?it/s]2024-02-04 22:48:30.844487: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+27it [26:11, 58.21s/it]
+   req_id                                             prompt                                             output final_answer    predict  score
+0  RQ-8-3  GPT4 Correct User:System: |Structure, Shieldin...  \n\n1. Structure, Shielding, & Storage directl...    undefined  undefined    1.0
+1  RQ-8-3  GPT4 Correct User:System: |Structure, Shieldin...  \n\n1. Structure, Shielding, and Storage direc...    undefined  undefined    1.0
+2  RQ-8-3  GPT4 Correct User:System: |Structure, Shieldin...  \n\n1. Structure, Shielding, & Storage: This s...    undefined  undefined    1.0
+Precision: 0, Recall: 0 for fold 0 and alpha 25.0 and number of heads 48
+
+
+alpha: 25 K: 64
+[array([ 0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11, 12])]
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 32/32 [00:00<00:00, 33.03it/s]
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+You are using a model of type mistral to instantiate a model of type llama. This is not supported for all configurations of models and can yield errors.
+Loading checkpoint shards:   0%|                                                                                                        | 0/2 [00:00<?, ?it/s]/home/paul/miniconda3/envs/iti/lib/python3.8/site-packages/torch/_utils.py:831: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+Loading checkpoint shards: 100%|████████████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:04<00:00,  2.27s/it]
+/home/paul/miniconda3/envs/iti/lib/python3.8/site-packages/transformers/generation/configuration_utils.py:392: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.5` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`. This was detected when initializing the generation config instance, which means the corresponding file may hold incorrect parameterization and should be fixed.
+  warnings.warn(
+0it [00:00, ?it/s]2024-02-04 23:14:55.455789: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+27it [25:58, 57.72s/it]
+   req_id                                             prompt                                             output final_answer    predict  score
+0  RQ-8-3  GPT4 Correct User:System: |Structure, Shieldin...  \n1. The Water Loop is a part of the System th...    undefined  undefined    1.0
+1  RQ-8-3  GPT4 Correct User:System: |Structure, Shieldin...  \n\n1. The Logical System directly_contains Wa...    undefined  undefined    1.0
+2  RQ-8-3  GPT4 Correct User:System: |Structure, Shieldin...  \n\n1. Structure, Shielding, & Storage:\n   - ...    undefined  undefined    1.0
+Precision: 0, Recall: 0 for fold 0 and alpha 25.0 and number of heads 64
+
+
+alpha: 25 K: 80
+[array([ 0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11, 12])]
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 32/32 [00:00<00:00, 33.11it/s]
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+You are using a model of type mistral to instantiate a model of type llama. This is not supported for all configurations of models and can yield errors.
+Loading checkpoint shards:   0%|                                                                                                        | 0/2 [00:00<?, ?it/s]/home/paul/miniconda3/envs/iti/lib/python3.8/site-packages/torch/_utils.py:831: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+Loading checkpoint shards: 100%|████████████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:04<00:00,  2.28s/it]
+/home/paul/miniconda3/envs/iti/lib/python3.8/site-packages/transformers/generation/configuration_utils.py:392: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.5` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`. This was detected when initializing the generation config instance, which means the corresponding file may hold incorrect parameterization and should be fixed.
+  warnings.warn(
+0it [00:00, ?it/s]2024-02-04 23:41:07.499096: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+27it [26:39, 59.26s/it]
+   req_id                                             prompt                                             output final_answer    predict  score
+0  RQ-8-3  GPT4 Correct User:System: |Structure, Shieldin...  \n1. Structure, Shielding, & Storage directly_...    undefined  undefined    1.0
+1  RQ-8-3  GPT4 Correct User:System: |Structure, Shieldin...  \n\n1. Structure, Shielding, & Storage directl...    undefined  undefined    1.0
+2  RQ-8-3  GPT4 Correct User:System: |Structure, Shieldin...  \n\n1. Structure, Shielding, & Storage:\n- It ...         True        yes    1.0
+Precision: 0, Recall: 0 for fold 0 and alpha 25.0 and number of heads 80
+
+
+alpha: 25 K: 96
+[array([ 0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11, 12])]
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 32/32 [00:00<00:00, 33.10it/s]
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+You are using a model of type mistral to instantiate a model of type llama. This is not supported for all configurations of models and can yield errors.
+Loading checkpoint shards:   0%|                                                                                                        | 0/2 [00:00<?, ?it/s]/home/paul/miniconda3/envs/iti/lib/python3.8/site-packages/torch/_utils.py:831: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+Loading checkpoint shards: 100%|████████████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:04<00:00,  2.32s/it]
+/home/paul/miniconda3/envs/iti/lib/python3.8/site-packages/transformers/generation/configuration_utils.py:392: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.5` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`. This was detected when initializing the generation config instance, which means the corresponding file may hold incorrect parameterization and should be fixed.
+  warnings.warn(
+0it [00:00, ?it/s]2024-02-05 00:08:00.733834: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+7it [07:02, 60.29s/it]
+
+1. First, we need to find the specific way.
+We can see that.
+
+1. Items
+
+A.
+
+1.
+
+Items
+
+A items
+
+A
+
+We can see.
+
+A
+
+For a certain.
+
+We can see.
+
+We need to find.
+
+1.
+
+Items
+
+A
+
+1.
+
+First, we need to find.
+
+We need to findItems
+
+We can see.
+
+We can see
+
+1.
+
+1. A
+
+First, Items
+
+A We need to find
+
+1. A
+
+We can see.
+
+Items
+
+1. A
+
+The above
+
+We need to findA
+
+1.
+
+ItemsA
+
+A // Items
+
+A A Items
+
+The answer:
+
+1. A Items
+
+A // A // Items A Items
+
+A // ItemsA // A // A Items
+
+A A Items // A A A Items
+
+1. A
+
+A Items
+
+We can see.
+
+We need
+We can see.
+
+1. A A A
+
+ItemsA
+
+We can see.
+
+A A A
+
+1. A A A A // A A A // A Items
+
+Items A // A A
+
+ItemsA A A A // Items
+
+A A A A A // A A // A A A A A A A A A Items
+
+1. A A A // A A A A A A A A A A // Items A // A Items
+
+Items
+
+We can see.
+
+1. A A // ItemsA A // A A A A A A A A // A A A A A A A A A A A A A Items
+
+final A // A // A A A // ItemsA A A A A A A Items A A A A A A A A A A Items A A A Items A A A A // A // A A A A A A // A A A A // A A A A // A // A A A A A A // A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A // A A A A A A A // A A A A A A // A A A A // A // A A A // A A A // A A // A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A
+27it [27:04, 60.17s/it]
+   req_id                                             prompt                                             output final_answer    predict  score
+0  RQ-8-3  GPT4 Correct User:System: |Structure, Shieldin...  \n1. We can see that we can see\n1. We can see...    undefined  undefined   1.00
+1  RQ-8-3  GPT4 Correct User:System: |Structure, Shieldin...  \n\n1. Structure, Shielding & Storage directly...    undefined  undefined   1.00
+2  RQ-8-3  GPT4 Correct User:System: |Structure, Shieldin...  \n\n1. Structure, Shielding, & Storage directl...    undefined  undefined   0.68
+Precision: 0, Recall: 0 for fold 0 and alpha 25.0 and number of heads 96
+
+
+alpha: 30 K: 48
+[array([ 0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11, 12])]
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 32/32 [00:00<00:00, 33.01it/s]
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+You are using a model of type mistral to instantiate a model of type llama. This is not supported for all configurations of models and can yield errors.
+Loading checkpoint shards:   0%|                                                                                                        | 0/2 [00:00<?, ?it/s]/home/paul/miniconda3/envs/iti/lib/python3.8/site-packages/torch/_utils.py:831: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+Loading checkpoint shards: 100%|████████████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:04<00:00,  2.34s/it]
+/home/paul/miniconda3/envs/iti/lib/python3.8/site-packages/transformers/generation/configuration_utils.py:392: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.5` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`. This was detected when initializing the generation config instance, which means the corresponding file may hold incorrect parameterization and should be fixed.
+  warnings.warn(
+0it [00:00, ?it/s]2024-02-05 00:35:18.500485: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+27it [26:44, 59.44s/it]
+   req_id                                             prompt                                             output final_answer    predict  score
+0  RQ-8-3  GPT4 Correct User:System: |Structure, Shieldin...  \n\n1. Structure, Shielding, and Storage direc...    undefined  undefined   1.00
+1  RQ-8-3  GPT4 Correct User:System: |Structure, Shieldin...  \n\n1. Structure, Shielding, and Storage direc...    undefined  undefined   0.97
+2  RQ-8-3  GPT4 Correct User:System: |Structure, Shieldin...  \n\n1. Structure, Shielding, and Storage perfo...    undefined  undefined   1.00
+Precision: 0, Recall: 0 for fold 0 and alpha 30.0 and number of heads 48
+
+
+alpha: 30 K: 64
+[array([ 0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11, 12])]
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 32/32 [00:00<00:00, 33.18it/s]
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+You are using a model of type mistral to instantiate a model of type llama. This is not supported for all configurations of models and can yield errors.
+Loading checkpoint shards:   0%|                                                                                                        | 0/2 [00:00<?, ?it/s]/home/paul/miniconda3/envs/iti/lib/python3.8/site-packages/torch/_utils.py:831: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+Loading checkpoint shards: 100%|████████████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:04<00:00,  2.35s/it]
+/home/paul/miniconda3/envs/iti/lib/python3.8/site-packages/transformers/generation/configuration_utils.py:392: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.5` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`. This was detected when initializing the generation config instance, which means the corresponding file may hold incorrect parameterization and should be fixed.
+  warnings.warn(
+0it [00:00, ?it/s]2024-02-05 01:02:16.792005: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+27it [26:09, 58.13s/it]
+   req_id                                             prompt                                             output final_answer    predict  score
+0  RQ-8-3  GPT4 Correct User:System: |Structure, Shieldin...  \n1. Structure, Shielding, & Storage| Structur...    undefined  undefined   0.74
+1  RQ-8-3  GPT4 Correct User:System: |Structure, Shieldin...  \n1. Structure, Shielding, & Storage:\n- We ne...    undefined  undefined   1.00
+2  RQ-8-3  GPT4 Correct User:System: |Structure, Shieldin...  \n\n1. Structure, Shielding, & Storage:\n- Str...    undefined  undefined   1.00
+Precision: 0, Recall: 0 for fold 0 and alpha 30.0 and number of heads 64
+
+
+alpha: 30 K: 80
+[array([ 0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11, 12])]
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 32/32 [00:00<00:00, 32.87it/s]
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+You are using a model of type mistral to instantiate a model of type llama. This is not supported for all configurations of models and can yield errors.
+Loading checkpoint shards:   0%|                                                                                                        | 0/2 [00:00<?, ?it/s]/home/paul/miniconda3/envs/iti/lib/python3.8/site-packages/torch/_utils.py:831: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+Loading checkpoint shards: 100%|████████████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:04<00:00,  2.27s/it]
+/home/paul/miniconda3/envs/iti/lib/python3.8/site-packages/transformers/generation/configuration_utils.py:392: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.5` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`. This was detected when initializing the generation config instance, which means the corresponding file may hold incorrect parameterization and should be fixed.
+  warnings.warn(
+0it [00:00, ?it/s]2024-02-05 01:28:39.413052: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+27it [26:27, 58.79s/it]
+   req_id                                             prompt                                             output final_answer    predict  score
+0  RQ-8-3  GPT4 Correct User:System: |Structure, Shieldin...  \n1. Structure, Shielding:\n- System: It seems...    undefined  undefined   1.00
+1  RQ-8-3  GPT4 Correct User:System: |Structure, Shieldin...  \n1. Structure:\n- Structure, Shielding: We ca...    undefined  undefined   0.57
+2  RQ-8-3  GPT4 Correct User:System: |Structure, Shieldin...  \n\n1. Structure, Shielding, & Storage:\n- It ...    undefined  undefined   0.80
+Precision: 0, Recall: 0 for fold 0 and alpha 30.0 and number of heads 80
+
+
+alpha: 30 K: 96
+[array([ 0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11, 12])]
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 32/32 [00:00<00:00, 33.04it/s]
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+You are using a model of type mistral to instantiate a model of type llama. This is not supported for all configurations of models and can yield errors.
+Loading checkpoint shards:   0%|                                                                                                        | 0/2 [00:00<?, ?it/s]/home/paul/miniconda3/envs/iti/lib/python3.8/site-packages/torch/_utils.py:831: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+Loading checkpoint shards: 100%|████████████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:04<00:00,  2.29s/it]
+/home/paul/miniconda3/envs/iti/lib/python3.8/site-packages/transformers/generation/configuration_utils.py:392: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.5` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`. This was detected when initializing the generation config instance, which means the corresponding file may hold incorrect parameterization and should be fixed.
+  warnings.warn(
+0it [00:00, ?it/s]2024-02-05 01:55:19.840400: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+27it [27:06, 60.24s/it]
+   req_id                                             prompt                                             output final_answer    predict  score
+0  RQ-8-3  GPT4 Correct User:System: |Structure, Shieldin...  \n1. We need to ensure that we can be\n1. We c...    undefined  undefined   1.00
+1  RQ-8-3  GPT4 Correct User:System: |Structure, Shieldin...  \nWe can see that there are certain UnixWe can...    undefined  undefined   1.00
+2  RQ-8-3  GPT4 Correct User:System: |Structure, Shieldin...  \n\nWe can see that wecan_weASystem\n\nASystem...    undefined  undefined   0.71
+Precision: 0, Recall: 0 for fold 0 and alpha 30.0 and number of heads 96
+

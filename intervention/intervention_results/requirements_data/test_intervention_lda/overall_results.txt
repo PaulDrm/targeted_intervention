@@ -1,0 +1,66 @@
+Train data: Precision: 0.9, Recall: 0.75 for fold 0 and alpha 35.0 and head 13 0
+predict
+no           61
+yes          31
+undefined    24
+Name: count, dtype: int64
+Train data: Precision: 0.8269230769230769, Recall: 0.9347826086956522 for fold 0 and alpha 35.0 and head 13 11
+predict
+yes          58
+no           53
+undefined     5
+Name: count, dtype: int64
+Train data: Precision: 0.6756756756756757, Recall: 0.9259259259259259 for fold 0 and alpha 35.0 and head 31 14
+predict
+yes          80
+no           30
+undefined     6
+Name: count, dtype: int64
+Train data: Precision: 0.6571428571428571, Recall: 0.9019607843137255 for fold 0 and alpha 35.0 and head 22 15
+predict
+yes          80
+no           32
+undefined     4
+Name: count, dtype: int64
+Train data: Precision: 0.6582278481012658, Recall: 0.9629629629629629 for fold 0 and alpha 35.0 and head 24 27
+predict
+yes          84
+no           29
+undefined     3
+Name: count, dtype: int64
+Train data: Precision: 0.6811594202898551, Recall: 0.8867924528301887 for fold 0 and alpha 35.0 and head 3 3
+predict
+yes          75
+no           36
+undefined     5
+Name: count, dtype: int64
+Train data: Precision: 0.6956521739130435, Recall: 0.96 for fold 0 and alpha 35.0 and head 26 30
+predict
+yes          78
+no           35
+undefined     3
+Name: count, dtype: int64
+Train data: Precision: 0.7627118644067796, Recall: 0.9574468085106383 for fold 0 and alpha 35.0 and head 3 10
+predict
+yes          71
+no           37
+undefined     8
+Name: count, dtype: int64
+Train data: Precision: 0.6794871794871795, Recall: 0.9298245614035088 for fold 0 and alpha 35.0 and head 10 9
+predict
+yes          78
+no           35
+undefined     3
+Name: count, dtype: int64
+Train data: Precision: 0.5866666666666667, Recall: 0.88 for fold 0 and alpha 35.0 and head 3 14
+predict
+yes          81
+no           30
+undefined     5
+Name: count, dtype: int64
+Train data: Precision: 0.6986301369863014, Recall: 0.8947368421052632 for fold 0 and alpha 35.0 and head 10 8
+predict
+yes          79
+no           31
+undefined     6
+Name: count, dtype: int64

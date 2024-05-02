@@ -1,0 +1,20 @@
+#!/bin/bash
+
+model_name="meta-llama/Llama-2-7b-chat-hf" #"openchat/openchat_3.5" #"meta-llama/Llama-2-7b-chat-hf" #"openchat/openchat_3.5"
+input_path="../datasets/ai_coordination/dataset_processed_attentions.json" #"../datasets/refusal/dataset_processed_attentions.json" #"../datasets/requirements_data/dataframe_open_chat_cot_moon_06022024_attentions_gt.json" #"../datasets/refusal/dataset_processed_attentions.json"
+output_path="../intervention_results/ai_coordination/policy_low_variance_high_probe_accuracy" #"../intervention_results/refusal_data/negative_results" #"../intervention_results/requirements_data" #"../intervention_results/refusal_data"
+dataset_name="ai_coordination" #"refusal" #"requirements_data"
+## Refusal
+#K_pairs=("14 20" "14 27" "12 0" "12 1")
+#K_pairs=("12 6")
+K_pairs=("23 22" "12 15" "22 31" "18 7" "25 29" "24 6" "25 18" "21 8" "27 11" "23 9")
+
+for alpha in 35 75; do
+    for K in "${K_pairs[@]}"; do
+        layer=$(echo $K | cut -d ' ' -f 1)
+        head=$(echo $K | cut -d ' ' -f 2)
+        echo "alpha: $alpha Layer: $layer Head: $head"
+        python validate_2fold_moon_all_no_heads_analysis_new.py --layer $layer --head $head --num_heads 1 --alpha $alpha --num_fold=1 --val_ratio=0.5 --model_name $model_name  --input_path $input_path --output_path $output_path --dataset $dataset_name --add_or_subtract true
+        echo
+    done
+done

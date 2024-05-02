@@ -1,0 +1,340 @@
+(llm_updated) paul@MAE-WKSTAT-PD:~/pauld/projects/AIDA/gitlab/aida/honest_llama$ ./sweep_false_positives.sh
+alpha: 5 K: 1
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 32/32 [00:00<00:00, 33.30it/s]
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+You are using a model of type mistral to instantiate a model of type llama. This is not supported for all configurations of models and can yield errors.
+Loading checkpoint shards: 100%|████████████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:12<00:00,  6.43s/it]
+/home/paul/miniconda3/envs/llm_updated/lib/python3.9/site-packages/transformers/generation/configuration_utils.py:389: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.5` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`. This was detected when initializing the generation config instance, which means the corresponding file may hold incorrect parameterization and should be fixed.
+  warnings.warn(
+0it [00:00, ?it/s]2024-02-11 11:07:23.931878: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+54it [20:18, 22.57s/it]
+Precision: 0.11538461538461539, Recall: 0.5 for fold 0 and alpha 5.0 and number of heads 1
+predict
+yes          32
+no           18
+undefined     4
+Name: count, dtype: int64
+
+
+alpha: 5 K: 2
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 32/32 [00:00<00:00, 32.36it/s]
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+You are using a model of type mistral to instantiate a model of type llama. This is not supported for all configurations of models and can yield errors.
+Loading checkpoint shards: 100%|████████████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:13<00:00,  6.54s/it]
+/home/paul/miniconda3/envs/llm_updated/lib/python3.9/site-packages/transformers/generation/configuration_utils.py:389: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.5` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`. This was detected when initializing the generation config instance, which means the corresponding file may hold incorrect parameterization and should be fixed.
+  warnings.warn(
+0it [00:00, ?it/s]2024-02-11 11:28:05.160221: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+54it [19:13, 21.35s/it]
+Precision: 0.1111111111111111, Recall: 0.3 for fold 0 and alpha 5.0 and number of heads 2
+predict
+yes          31
+no           20
+undefined     3
+Name: count, dtype: int64
+
+
+alpha: 5 K: 4
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 32/32 [00:00<00:00, 34.34it/s]
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+You are using a model of type mistral to instantiate a model of type llama. This is not supported for all configurations of models and can yield errors.
+Loading checkpoint shards: 100%|████████████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:13<00:00,  6.78s/it]
+/home/paul/miniconda3/envs/llm_updated/lib/python3.9/site-packages/transformers/generation/configuration_utils.py:389: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.5` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`. This was detected when initializing the generation config instance, which means the corresponding file may hold incorrect parameterization and should be fixed.
+  warnings.warn(
+0it [00:00, ?it/s]2024-02-11 11:47:42.158210: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+54it [19:13, 21.36s/it]
+Precision: 0.13636363636363635, Recall: 0.42857142857142855 for fold 0 and alpha 5.0 and number of heads 4
+predict
+yes          29
+no           21
+undefined     4
+Name: count, dtype: int64
+
+
+alpha: 5 K: 8
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 32/32 [00:00<00:00, 32.79it/s]
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+You are using a model of type mistral to instantiate a model of type llama. This is not supported for all configurations of models and can yield errors.
+Loading checkpoint shards: 100%|████████████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:13<00:00,  6.72s/it]
+/home/paul/miniconda3/envs/llm_updated/lib/python3.9/site-packages/transformers/generation/configuration_utils.py:389: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.5` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`. This was detected when initializing the generation config instance, which means the corresponding file may hold incorrect parameterization and should be fixed.
+  warnings.warn(
+0it [00:00, ?it/s]2024-02-11 12:07:18.254278: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+54it [21:05, 23.43s/it]
+Precision: 0.125, Recall: 0.42857142857142855 for fold 0 and alpha 5.0 and number of heads 8
+predict
+yes          27
+no           23
+undefined     4
+Name: count, dtype: int64
+
+
+alpha: 5 K: 16
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 32/32 [00:00<00:00, 32.29it/s]
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+You are using a model of type mistral to instantiate a model of type llama. This is not supported for all configurations of models and can yield errors.
+Loading checkpoint shards: 100%|████████████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:12<00:00,  6.09s/it]
+/home/paul/miniconda3/envs/llm_updated/lib/python3.9/site-packages/transformers/generation/configuration_utils.py:389: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.5` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`. This was detected when initializing the generation config instance, which means the corresponding file may hold incorrect parameterization and should be fixed.
+  warnings.warn(
+0it [00:00, ?it/s]2024-02-11 12:28:45.014394: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+54it [20:03, 22.29s/it]
+Precision: 0.16, Recall: 0.5 for fold 0 and alpha 5.0 and number of heads 16
+predict
+yes          29
+no           22
+undefined     3
+Name: count, dtype: int64
+
+
+alpha: 15 K: 1
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 32/32 [00:00<00:00, 32.32it/s]
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+You are using a model of type mistral to instantiate a model of type llama. This is not supported for all configurations of models and can yield errors.
+Loading checkpoint shards: 100%|████████████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:12<00:00,  6.49s/it]
+/home/paul/miniconda3/envs/llm_updated/lib/python3.9/site-packages/transformers/generation/configuration_utils.py:389: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.5` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`. This was detected when initializing the generation config instance, which means the corresponding file may hold incorrect parameterization and should be fixed.
+  warnings.warn(
+0it [00:00, ?it/s]2024-02-11 12:49:11.765103: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+54it [22:22, 24.85s/it]
+Precision: 0.12, Recall: 0.75 for fold 0 and alpha 15.0 and number of heads 1
+predict
+yes          32
+no           19
+undefined     3
+Name: count, dtype: int64
+
+
+alpha: 15 K: 2
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 32/32 [00:00<00:00, 32.13it/s]
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+You are using a model of type mistral to instantiate a model of type llama. This is not supported for all configurations of models and can yield errors.
+Loading checkpoint shards: 100%|████████████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:11<00:00,  5.63s/it]
+/home/paul/miniconda3/envs/llm_updated/lib/python3.9/site-packages/transformers/generation/configuration_utils.py:389: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.5` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`. This was detected when initializing the generation config instance, which means the corresponding file may hold incorrect parameterization and should be fixed.
+  warnings.warn(
+0it [00:00, ?it/s]2024-02-11 13:11:53.927881: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+54it [20:56, 23.27s/it]
+Precision: 0.125, Recall: 0.6666666666666666 for fold 0 and alpha 15.0 and number of heads 2
+predict
+yes          27
+no           20
+undefined     7
+Name: count, dtype: int64
+
+
+alpha: 15 K: 4
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 32/32 [00:00<00:00, 32.25it/s]
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+You are using a model of type mistral to instantiate a model of type llama. This is not supported for all configurations of models and can yield errors.
+Loading checkpoint shards: 100%|████████████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:14<00:00,  7.16s/it]
+/home/paul/miniconda3/envs/llm_updated/lib/python3.9/site-packages/transformers/generation/configuration_utils.py:389: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.5` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`. This was detected when initializing the generation config instance, which means the corresponding file may hold incorrect parameterization and should be fixed.
+  warnings.warn(
+0it [00:00, ?it/s]2024-02-11 13:33:15.433715: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+54it [21:06, 23.45s/it]
+Precision: 0.037037037037037035, Recall: 0.3333333333333333 for fold 0 and alpha 15.0 and number of heads 4
+predict
+yes          31
+no           16
+undefined     7
+Name: count, dtype: int64
+
+
+alpha: 15 K: 8
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 32/32 [00:00<00:00, 32.41it/s]
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+You are using a model of type mistral to instantiate a model of type llama. This is not supported for all configurations of models and can yield errors.
+Loading checkpoint shards: 100%|████████████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:09<00:00,  4.89s/it]
+/home/paul/miniconda3/envs/llm_updated/lib/python3.9/site-packages/transformers/generation/configuration_utils.py:389: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.5` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`. This was detected when initializing the generation config instance, which means the corresponding file may hold incorrect parameterization and should be fixed.
+  warnings.warn(
+0it [00:00, ?it/s]2024-02-11 13:54:40.179721: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+54it [19:54, 22.12s/it]
+Precision: 0.06896551724137931, Recall: 0.2857142857142857 for fold 0 and alpha 15.0 and number of heads 8
+predict
+yes          32
+no           19
+undefined     3
+Name: count, dtype: int64
+
+
+alpha: 15 K: 16
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 32/32 [00:00<00:00, 32.69it/s]
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+You are using a model of type mistral to instantiate a model of type llama. This is not supported for all configurations of models and can yield errors.
+Loading checkpoint shards: 100%|████████████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:14<00:00,  7.10s/it]
+/home/paul/miniconda3/envs/llm_updated/lib/python3.9/site-packages/transformers/generation/configuration_utils.py:389: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.5` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`. This was detected when initializing the generation config instance, which means the corresponding file may hold incorrect parameterization and should be fixed.
+  warnings.warn(
+0it [00:00, ?it/s]2024-02-11 14:14:58.763970: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+54it [21:30, 23.89s/it]
+Precision: 0.043478260869565216, Recall: 0.14285714285714285 for fold 0 and alpha 15.0 and number of heads 16
+predict
+yes          30
+no           20
+undefined     4
+Name: count, dtype: int64
+
+
+alpha: 20 K: 1
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 32/32 [00:00<00:00, 32.56it/s]
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+You are using a model of type mistral to instantiate a model of type llama. This is not supported for all configurations of models and can yield errors.
+Loading checkpoint shards: 100%|████████████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:12<00:00,  6.29s/it]
+/home/paul/miniconda3/envs/llm_updated/lib/python3.9/site-packages/transformers/generation/configuration_utils.py:389: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.5` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`. This was detected when initializing the generation config instance, which means the corresponding file may hold incorrect parameterization and should be fixed.
+  warnings.warn(
+0it [00:00, ?it/s]2024-02-11 14:36:51.590732: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+54it [17:55, 19.91s/it]
+Precision: 0.09375, Recall: 0.3333333333333333 for fold 0 and alpha 20.0 and number of heads 1
+predict
+yes          34
+no           18
+undefined     2
+Name: count, dtype: int64
+
+
+alpha: 20 K: 2
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 32/32 [00:00<00:00, 32.52it/s]
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+You are using a model of type mistral to instantiate a model of type llama. This is not supported for all configurations of models and can yield errors.
+Loading checkpoint shards: 100%|████████████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:11<00:00,  5.56s/it]
+/home/paul/miniconda3/envs/llm_updated/lib/python3.9/site-packages/transformers/generation/configuration_utils.py:389: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.5` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`. This was detected when initializing the generation config instance, which means the corresponding file may hold incorrect parameterization and should be fixed.
+  warnings.warn(
+0it [00:00, ?it/s]2024-02-11 14:55:07.167937: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+54it [20:00, 22.23s/it]
+Precision: 0.09523809523809523, Recall: 0.3333333333333333 for fold 0 and alpha 20.0 and number of heads 2
+predict
+yes          26
+no           22
+undefined     6
+Name: count, dtype: int64
+
+
+alpha: 20 K: 4
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 32/32 [00:00<00:00, 32.37it/s]
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+You are using a model of type mistral to instantiate a model of type llama. This is not supported for all configurations of models and can yield errors.
+Loading checkpoint shards: 100%|████████████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:11<00:00,  5.86s/it]
+/home/paul/miniconda3/envs/llm_updated/lib/python3.9/site-packages/transformers/generation/configuration_utils.py:389: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.5` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`. This was detected when initializing the generation config instance, which means the corresponding file may hold incorrect parameterization and should be fixed.
+  warnings.warn(
+0it [00:00, ?it/s]2024-02-11 15:15:29.665080: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+54it [21:39, 24.07s/it]
+Precision: 0.05555555555555555, Recall: 0.25 for fold 0 and alpha 20.0 and number of heads 4
+predict
+yes          26
+no           24
+undefined     4
+Name: count, dtype: int64
+
+
+alpha: 20 K: 8
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 32/32 [00:00<00:00, 32.49it/s]
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+You are using a model of type mistral to instantiate a model of type llama. This is not supported for all configurations of models and can yield errors.
+Loading checkpoint shards: 100%|████████████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:09<00:00,  4.77s/it]
+/home/paul/miniconda3/envs/llm_updated/lib/python3.9/site-packages/transformers/generation/configuration_utils.py:389: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.5` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`. This was detected when initializing the generation config instance, which means the corresponding file may hold incorrect parameterization and should be fixed.
+  warnings.warn(
+0it [00:00, ?it/s]2024-02-11 15:37:27.868815: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+54it [22:54, 25.45s/it]
+Precision: 0.0, Recall: 0.0 for fold 0 and alpha 20.0 and number of heads 8
+predict
+yes          24
+no           17
+undefined    13
+Name: count, dtype: int64
+
+
+alpha: 20 K: 16
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 32/32 [00:00<00:00, 32.35it/s]
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+You are using a model of type mistral to instantiate a model of type llama. This is not supported for all configurations of models and can yield errors.
+Loading checkpoint shards: 100%|████████████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:10<00:00,  5.21s/it]
+/home/paul/miniconda3/envs/llm_updated/lib/python3.9/site-packages/transformers/generation/configuration_utils.py:389: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.5` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`. This was detected when initializing the generation config instance, which means the corresponding file may hold incorrect parameterization and should be fixed.
+  warnings.warn(
+0it [00:00, ?it/s]2024-02-11 16:00:41.800615: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+54it [20:08, 22.38s/it]
+Precision: 0.029411764705882353, Recall: 0.3333333333333333 for fold 0 and alpha 20.0 and number of heads 16
+predict
+yes          37
+no           14
+undefined     3
+Name: count, dtype: int64
+
+
+alpha: 35 K: 1
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 32/32 [00:00<00:00, 32.37it/s]
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+You are using a model of type mistral to instantiate a model of type llama. This is not supported for all configurations of models and can yield errors.
+Loading checkpoint shards: 100%|████████████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:10<00:00,  5.14s/it]
+/home/paul/miniconda3/envs/llm_updated/lib/python3.9/site-packages/transformers/generation/configuration_utils.py:389: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.5` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`. This was detected when initializing the generation config instance, which means the corresponding file may hold incorrect parameterization and should be fixed.
+  warnings.warn(
+0it [00:00, ?it/s]2024-02-11 16:21:09.169769: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+54it [20:38, 22.93s/it]
+Precision: 0.26666666666666666, Recall: 0.5 for fold 0 and alpha 35.0 and number of heads 1
+predict
+no           27
+yes          26
+undefined     1
+Name: count, dtype: int64
+
+
+alpha: 35 K: 2
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 32/32 [00:00<00:00, 32.58it/s]
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+You are using a model of type mistral to instantiate a model of type llama. This is not supported for all configurations of models and can yield errors.
+Loading checkpoint shards: 100%|████████████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:09<00:00,  4.97s/it]
+/home/paul/miniconda3/envs/llm_updated/lib/python3.9/site-packages/transformers/generation/configuration_utils.py:389: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.5` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`. This was detected when initializing the generation config instance, which means the corresponding file may hold incorrect parameterization and should be fixed.
+  warnings.warn(
+0it [00:00, ?it/s]2024-02-11 16:42:06.032813: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+54it [22:18, 24.78s/it]
+Precision: 0.07692307692307693, Recall: 0.16666666666666666 for fold 0 and alpha 35.0 and number of heads 2
+predict
+yes          29
+no           20
+undefined     5
+Name: count, dtype: int64
+
+
+alpha: 35 K: 4
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 32/32 [00:00<00:00, 32.35it/s]
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+You are using a model of type mistral to instantiate a model of type llama. This is not supported for all configurations of models and can yield errors.
+Loading checkpoint shards: 100%|████████████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:09<00:00,  4.68s/it]
+/home/paul/miniconda3/envs/llm_updated/lib/python3.9/site-packages/transformers/generation/configuration_utils.py:389: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.5` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`. This was detected when initializing the generation config instance, which means the corresponding file may hold incorrect parameterization and should be fixed.
+  warnings.warn(
+0it [00:00, ?it/s]2024-02-11 17:04:43.064484: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+54it [20:12, 22.46s/it]
+Precision: 0.08695652173913043, Recall: 0.2 for fold 0 and alpha 35.0 and number of heads 4
+predict
+yes          29
+no           19
+undefined     6
+Name: count, dtype: int64
+
+
+alpha: 35 K: 8
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 32/32 [00:00<00:00, 32.42it/s]
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+You are using a model of type mistral to instantiate a model of type llama. This is not supported for all configurations of models and can yield errors.
+Loading checkpoint shards: 100%|████████████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:10<00:00,  5.13s/it]
+/home/paul/miniconda3/envs/llm_updated/lib/python3.9/site-packages/transformers/generation/configuration_utils.py:389: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.5` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`. This was detected when initializing the generation config instance, which means the corresponding file may hold incorrect parameterization and should be fixed.
+  warnings.warn(
+0it [00:00, ?it/s]2024-02-11 17:25:15.024960: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+54it [21:57, 24.39s/it]
+Precision: 0.0, Recall: 0.0 for fold 0 and alpha 35.0 and number of heads 8
+predict
+yes          32
+no           18
+undefined     4
+Name: count, dtype: int64
+
+
+alpha: 35 K: 16
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 32/32 [00:00<00:00, 32.50it/s]
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+You are using a model of type mistral to instantiate a model of type llama. This is not supported for all configurations of models and can yield errors.
+Loading checkpoint shards: 100%|████████████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:09<00:00,  4.89s/it]
+/home/paul/miniconda3/envs/llm_updated/lib/python3.9/site-packages/transformers/generation/configuration_utils.py:389: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.5` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`. This was detected when initializing the generation config instance, which means the corresponding file may hold incorrect parameterization and should be fixed.
+  warnings.warn(
+0it [00:00, ?it/s]2024-02-11 17:47:30.656592: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+54it [25:50, 28.71s/it]
+Precision: 0.09523809523809523, Recall: 0.6666666666666666 for fold 0 and alpha 35.0 and number of heads 16
+predict
+yes          29
+no           20
+undefined     5
+Name: count, dtype: int64
+

@@ -1,0 +1,18 @@
+name: iti
+channels:
+  - conda
+  - pytorch
+  - nvidia
+  - defaults
+dependencies:
+  - python=3.8.15
+  - pip
+  - pytorch=2.0  # Specifying PyTorch 2.0 with CUDA 12.1 support
+  - torchvision
+  - pytorch-cuda=12.1
+  - torchaudio
+  - typing-extensions=4.3.0=py38h06a4308_0
+  - pip:
+    - git+https://github.com/sylinrl/TruthfulQA
+    - git+https://github.com/davidbau/baukit
+    - git+https://github.com/google-research/bleurt

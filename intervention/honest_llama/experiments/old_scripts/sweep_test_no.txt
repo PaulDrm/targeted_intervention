@@ -1,0 +1,818 @@
+(llm_updated) paul@MAE-WKSTAT-PD:~/pauld/projects/AIDA/gitlab/aida/honest_llama$ ./sweep_copy.sh                                                              alpha: 5 K: 4
+RQ-8-5
+RQ-2-5
+RQ-11
+RQ-12
+RQ-2-6
+RQ-2-7
+RQ-2-12
+RQ-2-8
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 32/32 [00:01<00:00, 31.72it/s]
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+You are using a model of type mistral to instantiate a model of type llama. This is not supported for all configurations of models and can yield errors.
+Loading checkpoint shards: 100%|████████████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:14<00:00,  7.43s/it]
+/home/paul/miniconda3/envs/llm_updated/lib/python3.9/site-packages/transformers/generation/configuration_utils.py:389: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.5` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`. This was detected when initializing the generation config instance, which means the corresponding file may hold incorrect parameterization and should be fixed.
+  warnings.warn(
+0it [00:00, ?it/s]2024-02-09 16:56:32.803330: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+93it [29:20, 18.93s/it]
+Precision: 0.696969696969697, Recall: 1.0 for fold 0 and alpha 5.0 and number of heads 4
+predict
+no           55
+yes          36
+undefined     2
+Name: count, dtype: int64
+
+
+alpha: 5 K: 16
+RQ-8-5
+RQ-2-5
+RQ-11
+RQ-12
+RQ-2-6
+RQ-2-7
+RQ-2-12
+RQ-2-8
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 32/32 [00:01<00:00, 30.62it/s]
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+You are using a model of type mistral to instantiate a model of type llama. This is not supported for all configurations of models and can yield errors.
+Loading checkpoint shards: 100%|████████████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:19<00:00,  9.92s/it]
+/home/paul/miniconda3/envs/llm_updated/lib/python3.9/site-packages/transformers/generation/configuration_utils.py:389: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.5` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`. This was detected when initializing the generation config instance, which means the corresponding file may hold incorrect parameterization and should be fixed.
+  warnings.warn(
+0it [00:00, ?it/s]2024-02-09 17:26:22.728878: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+93it [32:37, 21.04s/it]
+Precision: 0.4791666666666667, Recall: 0.9583333333333334 for fold 0 and alpha 5.0 and number of heads 16
+predict
+yes          50
+no           38
+undefined     5
+Name: count, dtype: int64
+
+
+alpha: 5 K: 32
+RQ-8-5
+RQ-2-5
+RQ-11
+RQ-12
+RQ-2-6
+RQ-2-7
+RQ-2-12
+RQ-2-8
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 32/32 [00:00<00:00, 32.95it/s]
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+You are using a model of type mistral to instantiate a model of type llama. This is not supported for all configurations of models and can yield errors.
+Loading checkpoint shards: 100%|████████████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:16<00:00,  8.47s/it]
+/home/paul/miniconda3/envs/llm_updated/lib/python3.9/site-packages/transformers/generation/configuration_utils.py:389: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.5` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`. This was detected when initializing the generation config instance, which means the corresponding file may hold incorrect parameterization and should be fixed.
+  warnings.warn(
+0it [00:00, ?it/s]2024-02-09 17:59:25.819872: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+93it [31:57, 20.62s/it]
+Precision: 0.4897959183673469, Recall: 0.8888888888888888 for fold 0 and alpha 5.0 and number of heads 32
+predict
+yes          57
+no           31
+undefined     5
+Name: count, dtype: int64
+
+
+alpha: 5 K: 64
+RQ-8-5
+RQ-2-5
+RQ-11
+RQ-12
+RQ-2-6
+RQ-2-7
+RQ-2-12
+RQ-2-8
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 32/32 [00:01<00:00, 30.96it/s]
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+You are using a model of type mistral to instantiate a model of type llama. This is not supported for all configurations of models and can yield errors.
+Loading checkpoint shards: 100%|████████████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:11<00:00,  5.95s/it]
+/home/paul/miniconda3/envs/llm_updated/lib/python3.9/site-packages/transformers/generation/configuration_utils.py:389: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.5` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`. This was detected when initializing the generation config instance, which means the corresponding file may hold incorrect parameterization and should be fixed.
+  warnings.warn(
+0it [00:00, ?it/s]2024-02-09 18:31:44.298031: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+93it [34:08, 22.02s/it]
+Precision: 0.38596491228070173, Recall: 0.7857142857142857 for fold 0 and alpha 5.0 and number of heads 64
+predict
+yes          63
+no           28
+undefined     2
+Name: count, dtype: int64
+
+
+alpha: 15 K: 4
+RQ-8-5
+RQ-2-5
+RQ-11
+RQ-12
+RQ-2-6
+RQ-2-7
+RQ-2-12
+RQ-2-8
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 32/32 [00:00<00:00, 32.76it/s]
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+You are using a model of type mistral to instantiate a model of type llama. This is not supported for all configurations of models and can yield errors.
+Loading checkpoint shards: 100%|████████████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:12<00:00,  6.42s/it]
+/home/paul/miniconda3/envs/llm_updated/lib/python3.9/site-packages/transformers/generation/configuration_utils.py:389: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.5` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`. This was detected when initializing the generation config instance, which means the corresponding file may hold incorrect parameterization and should be fixed.
+  warnings.warn(
+0it [00:00, ?it/s]2024-02-09 19:06:14.828755: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+93it [32:54, 21.24s/it]
+Precision: 0.8846153846153846, Recall: 0.92 for fold 0 and alpha 15.0 and number of heads 4
+predict
+no           51
+yes          28
+undefined    14
+Name: count, dtype: int64
+
+
+alpha: 15 K: 16
+RQ-8-5
+RQ-2-5
+RQ-11
+RQ-12
+RQ-2-6
+RQ-2-7
+RQ-2-12
+RQ-2-8
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 32/32 [00:00<00:00, 32.17it/s]
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+You are using a model of type mistral to instantiate a model of type llama. This is not supported for all configurations of models and can yield errors.
+Loading checkpoint shards: 100%|████████████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:14<00:00,  7.19s/it]
+/home/paul/miniconda3/envs/llm_updated/lib/python3.9/site-packages/transformers/generation/configuration_utils.py:389: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.5` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`. This was detected when initializing the generation config instance, which means the corresponding file may hold incorrect parameterization and should be fixed.
+  warnings.warn(
+0it [00:00, ?it/s]2024-02-09 19:39:34.978714: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+93it [33:08, 21.38s/it]
+Precision: 0.5106382978723404, Recall: 0.8571428571428571 for fold 0 and alpha 15.0 and number of heads 16
+predict
+yes          52
+no           35
+undefined     6
+Name: count, dtype: int64
+
+
+alpha: 15 K: 32
+RQ-8-5
+RQ-2-5
+RQ-11
+RQ-12
+RQ-2-6
+RQ-2-7
+RQ-2-12
+RQ-2-8
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 32/32 [00:00<00:00, 32.45it/s]
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+You are using a model of type mistral to instantiate a model of type llama. This is not supported for all configurations of models and can yield errors.
+Loading checkpoint shards: 100%|████████████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:12<00:00,  6.19s/it]
+/home/paul/miniconda3/envs/llm_updated/lib/python3.9/site-packages/transformers/generation/configuration_utils.py:389: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.5` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`. This was detected when initializing the generation config instance, which means the corresponding file may hold incorrect parameterization and should be fixed.
+  warnings.warn(
+0it [00:00, ?it/s]2024-02-09 20:13:03.992434: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+35it [11:34, 14.87s/it]
+93it [35:17, 22.77s/it]
+Precision: 0.5365853658536586, Recall: 0.8148148148148148 for fold 0 and alpha 15.0 and number of heads 32
+predict
+yes          50
+no           32
+undefined    11
+Name: count, dtype: int64
+
+
+alpha: 15 K: 64
+RQ-8-5
+RQ-2-5
+RQ-11
+RQ-12
+RQ-2-6
+RQ-2-7
+RQ-2-12
+RQ-2-8
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 32/32 [00:00<00:00, 32.67it/s]
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+You are using a model of type mistral to instantiate a model of type llama. This is not supported for all configurations of models and can yield errors.
+Loading checkpoint shards: 100%|████████████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:14<00:00,  7.05s/it]
+/home/paul/miniconda3/envs/llm_updated/lib/python3.9/site-packages/transformers/generation/configuration_utils.py:389: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.5` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`. This was detected when initializing the generation config instance, which means the corresponding file may hold incorrect parameterization and should be fixed.
+  warnings.warn(
+0it [00:00, ?it/s]2024-02-09 20:48:44.832793: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+93it [39:38, 25.58s/it]
+Precision: 0.22784810126582278, Recall: 0.8181818181818182 for fold 0 and alpha 15.0 and number of heads 64
+predict
+yes          81
+no            6
+undefined     6
+Name: count, dtype: int64
+
+
+alpha: 20 K: 4
+RQ-8-5
+RQ-2-5
+RQ-11
+RQ-12
+RQ-2-6
+RQ-2-7
+RQ-2-12
+RQ-2-8
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 32/32 [00:01<00:00, 30.84it/s]
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+You are using a model of type mistral to instantiate a model of type llama. This is not supported for all configurations of models and can yield errors.
+Loading checkpoint shards: 100%|████████████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:16<00:00,  8.06s/it]
+/home/paul/miniconda3/envs/llm_updated/lib/python3.9/site-packages/transformers/generation/configuration_utils.py:389: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.5` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`. This was detected when initializing the generation config instance, which means the corresponding file may hold incorrect parameterization and should be fixed.
+  warnings.warn(
+0it [00:00, ?it/s]2024-02-09 21:28:49.722801: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+93it [31:55, 20.60s/it]
+Precision: 0.6666666666666666, Recall: 0.6666666666666666 for fold 0 and alpha 20.0 and number of heads 4
+predict
+no           69
+yes          14
+undefined    10
+Name: count, dtype: int64
+
+
+alpha: 20 K: 16
+RQ-8-5
+RQ-2-5
+RQ-11
+RQ-12
+RQ-2-6
+RQ-2-7
+RQ-2-12
+RQ-2-8
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 32/32 [00:01<00:00, 30.98it/s]
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+You are using a model of type mistral to instantiate a model of type llama. This is not supported for all configurations of models and can yield errors.
+Loading checkpoint shards: 100%|████████████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:15<00:00,  7.50s/it]
+/home/paul/miniconda3/envs/llm_updated/lib/python3.9/site-packages/transformers/generation/configuration_utils.py:389: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.5` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`. This was detected when initializing the generation config instance, which means the corresponding file may hold incorrect parameterization and should be fixed.
+  warnings.warn(
+0it [00:00, ?it/s]2024-02-09 22:01:10.182836: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+93it [35:56, 23.19s/it]
+Precision: 0.5405405405405406, Recall: 0.7407407407407407 for fold 0 and alpha 20.0 and number of heads 16
+predict
+yes          43
+no           36
+undefined    14
+Name: count, dtype: int64
+
+
+alpha: 20 K: 32
+RQ-8-5
+RQ-2-5
+RQ-11
+RQ-12
+RQ-2-6
+RQ-2-7
+RQ-2-12
+RQ-2-8
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 32/32 [00:00<00:00, 32.33it/s]
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+You are using a model of type mistral to instantiate a model of type llama. This is not supported for all configurations of models and can yield errors.
+Loading checkpoint shards: 100%|████████████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:13<00:00,  6.99s/it]
+/home/paul/miniconda3/envs/llm_updated/lib/python3.9/site-packages/transformers/generation/configuration_utils.py:389: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.5` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`. This was detected when initializing the generation config instance, which means the corresponding file may hold incorrect parameterization and should be fixed.
+  warnings.warn(
+0it [00:00, ?it/s]2024-02-09 22:37:30.055330: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+42it [17:47, 34.08s/it]
+
+1. The System contains Emergency System, Logical System, Air Loop, Water Loop, and more.
+2. The Emergency System contains Detect Fire, Suppress Fire, and more.
+3. The Logical System contains Water Loop, Air Loop, Thermal Control, and more.
+4. The Air Loop contains Generate Oxygen, Recover CO2 into O2, and more.
+5. The Water Loop contains Recover Water from Waste, and more.
+
+From the given System description, it is not clear if the settlement provides medical supplies and facilities to manage minor injuries. So, based on the given System description, we cannot determine if the requirement is satisfied.
+
+Therefore, the answer is: Unable to determine. <|end_of_turn|>
+56it [25:19, 21.94s/it]
+
+1. The system describes the Emergency System and Logical System and their interactions with various components.
+2. The Emergency System is described to directly perform actions such as Distribute Backup Power, Isolate Module, and Suppress Fire.
+3. The Logical System contains various components such as Water Loop, Air Loop, and Command & Data Handling.
+4. The requirement states that the settlement shall have at least two points of egress in each module.
+
+Based on the given system description, it is not possible to determine if the settlement has at least two points of egress in each module. The system description does not provide any information about the settlement or its modules.
+
+Therefore, the answer is:
+
+#### 1.5
+The answer is: Yes, as the system description does not provide enough information to determine if the requirement is satisfied. <|end_of_turn|>
+93it [43:13, 27.89s/it]
+Precision: 0.3409090909090909, Recall: 0.7894736842105263 for fold 0 and alpha 20.0 and number of heads 32
+predict
+yes          50
+no           28
+undefined    15
+Name: count, dtype: int64
+
+
+alpha: 20 K: 64
+RQ-8-5
+RQ-2-5
+RQ-11
+RQ-12
+RQ-2-6
+RQ-2-7
+RQ-2-12
+RQ-2-8
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 32/32 [00:01<00:00, 30.95it/s]
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+You are using a model of type mistral to instantiate a model of type llama. This is not supported for all configurations of models and can yield errors.
+Loading checkpoint shards: 100%|████████████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:13<00:00,  6.76s/it]
+/home/paul/miniconda3/envs/llm_updated/lib/python3.9/site-packages/transformers/generation/configuration_utils.py:389: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.5` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`. This was detected when initializing the generation config instance, which means the corresponding file may hold incorrect parameterization and should be fixed.
+  warnings.warn(
+0it [00:00, ?it/s]2024-02-09 23:21:07.222827: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+93it [1:08:59, 44.51s/it]
+Precision: 0.25, Recall: 0.7916666666666666 for fold 0 and alpha 20.0 and number of heads 64
+predict
+yes          78
+undefined     9
+no            6
+Name: count, dtype: int64
+
+
+alpha: 35 K: 4
+RQ-8-5
+RQ-2-5
+RQ-11
+RQ-12
+RQ-2-6
+RQ-2-7
+RQ-2-12
+RQ-2-8
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 32/32 [00:01<00:00, 30.97it/s]
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+You are using a model of type mistral to instantiate a model of type llama. This is not supported for all configurations of models and can yield errors.
+Loading checkpoint shards: 100%|████████████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:15<00:00,  7.55s/it]
+/home/paul/miniconda3/envs/llm_updated/lib/python3.9/site-packages/transformers/generation/configuration_utils.py:389: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.5` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`. This was detected when initializing the generation config instance, which means the corresponding file may hold incorrect parameterization and should be fixed.
+  warnings.warn(
+0it [00:00, ?it/s]2024-02-10 00:30:32.052206: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+93it [30:05, 19.42s/it]
+Precision: 0, Recall: 0 for fold 0 and alpha 35.0 and number of heads 4
+predict
+no           76
+undefined    17
+Name: count, dtype: int64
+
+
+alpha: 35 K: 16
+RQ-8-5
+RQ-2-5
+RQ-11
+RQ-12
+RQ-2-6
+RQ-2-7
+RQ-2-12
+RQ-2-8
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 32/32 [00:01<00:00, 31.02it/s]
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+You are using a model of type mistral to instantiate a model of type llama. This is not supported for all configurations of models and can yield errors.
+Loading checkpoint shards: 100%|████████████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:11<00:00,  5.95s/it]
+/home/paul/miniconda3/envs/llm_updated/lib/python3.9/site-packages/transformers/generation/configuration_utils.py:389: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.5` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`. This was detected when initializing the generation config instance, which means the corresponding file may hold incorrect parameterization and should be fixed.
+  warnings.warn(
+0it [00:00, ?it/s]2024-02-10 01:00:59.270868: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+93it [35:11, 22.70s/it]
+Precision: 0.8571428571428571, Recall: 0.6 for fold 0 and alpha 35.0 and number of heads 16
+predict
+no           67
+yes          18
+undefined     8
+Name: count, dtype: int64
+
+
+alpha: 35 K: 32
+RQ-8-5
+RQ-2-5
+RQ-11
+RQ-12
+RQ-2-6
+RQ-2-7
+RQ-2-12
+RQ-2-8
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 32/32 [00:01<00:00, 30.44it/s]
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+You are using a model of type mistral to instantiate a model of type llama. This is not supported for all configurations of models and can yield errors.
+Loading checkpoint shards: 100%|████████████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:09<00:00,  4.81s/it]
+/home/paul/miniconda3/envs/llm_updated/lib/python3.9/site-packages/transformers/generation/configuration_utils.py:389: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.5` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`. This was detected when initializing the generation config instance, which means the corresponding file may hold incorrect parameterization and should be fixed.
+  warnings.warn(
+0it [00:00, ?it/s]2024-02-10 01:36:29.337318: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+28it [26:21, 56.46s/it]
+
+1. Provide Exercise Facilities for Crew:
+   The Crew are located in the Martial.
+
+Provide a Water Loop for Crew:
+   The Crew are located in the Martial.
+
+Provide a Water Loop for Crew:
+   The Crew are located in the Martial.
+
+Provide a Water Loop for Crew:
+The Caudial.
+
+Answer a Water Loop for Crew:
+   The Caudia Water Laop for Caud:
+
+The answer Water Laop for Caud for a crew:
+
+Answer a Water Loop for Caud:
+   The answer a Water Laop for crew:
+
+Answer a Water Laop for a crew:
+   The answer a Water Laap for a crew:
+
+Answer a Water Laap for a crew:
+   The answer a Water laap for a crew:
+
+Answer a Water Laap for a Crew:
+
+Answer a Water Laap for a crew:
+   The answer a Waterap for a crew:
+
+Answer a Waterap for a crew:
+   The answer a Waterap for a crew:
+
+Answer a Waterap for a crew:
+   The answer a Waterap for a crew:
+
+Answer a Waterap for a crew:
+   The answer a Waterap for a crew:
+
+Answer a Waterap for a crew:
+   The answer a Waterap for a crew:
+
+Answer a Waterap for a crew:
+   The answer a Waterap for a crew:
+
+An answer a Waterap for a crew:
+   The answer a Waterap for a crew:
+   The answer a Waterap for a crew:
+
+Answer a Waterap for a crew:
+   The answer a Waterap for a crew:
+   The answer a Waterap for a crew:
+
+Answer a Waterap for a crew:
+   The answer a Waterap for a crew:
+   The answer a Waterap for a crew:
+   The answer a Waterap for a crew:
+   The answer a Waterap for a crew:
+   The answer a Waterap for a crew:
+   The answer a Waterap for a crew:
+   The answer a Waterap for a crew:
+   The answer a Waterap for a crew:
+   The answer a Waterap for a crew:
+   The answer a Waterap for a crew:
+   The answer a Waterap for a crew:
+   The answer a Waterap for a crew:
+   The answer a Waterap for a crew:
+   The answer a Waterap for a crew:
+   The answer a Waterap for a crew:
+   The answer a Waterap for a crew
+51it [48:00, 56.26s/it]
+
+System:
+
+1. Power:
+- Distribute Power:
+- Directly_contain Power:
+
+- Power_contain_Distribute Power:
+- Power_contain_Distribut Power:
+- Distribute Power:
+- Distribute_contain_Distribute Power:
+- Distribute Power:
+
+Power_contain_Distribute Power:
+
+Answer_contain_Distribute Power:
+- Distriate_contain_Distrain Power:
+
+Answer_contain_Distribute power:
+
+- Distriate_contain_Distrain_Distrain_contain_containa_Distrain_contain_contain_Distrain:
+
+Answer_contain_Distributea_contain_Distrain_contain_Distrain_contain_Distrain_contain_Distrain_Distrain_Distraina_contain_Dastraina_Distrain_Dastraina_Dstrain_Dastrain_Dastraina_Dastrain_Dastrain_contain_Dastrain_astraina_Dastraina_Dastrain_Dastrain_Dastrain_Dstrain_Dastrain_astrain_Dastrain_Dastrain_astain_Dastraina_astain_astrain_astraina_astraina_a_astrain_Dastrain_Dastraina_Dastrain_astrain_a_astaina_Dastraina_astain_astrain_Dastraina_Dastrain_astraina_Dastrain_D_astraina_Dastrain_Dastrain_Dstrain_a_Dastrain_Dastrain_Dastraina_Dastrain_a_Dastrain_D_a_astain_D_astrain_Dastrain_aastrain_a_Dastrain_aastrain_Dastraina_astrain_aDstrain_Dstrain_a_a_strain_Dastrain_aastraina_Dastrain_astraina_aDastrain_D_a_a_Dastraina_Dastrain_Dastrain_a_Astraina_Dastrain_aD_astrain_Dastrain_aD_aAstrain_aDastrain_aA_Dastrain_D_aDstraina_D_astrain_aastrain_aD_a_Astrain_Dastrain_Dastrain_astrain_Dastrain_a_D_astrain_a
+93it [1:27:33, 56.49s/it]
+Precision: 0.0, Recall: 0.0 for fold 0 and alpha 35.0 and number of heads 32
+predict
+undefined    54
+yes          31
+no            8
+Name: count, dtype: int64
+
+
+alpha: 35 K: 64
+RQ-8-5
+RQ-2-5
+RQ-11
+RQ-12
+RQ-2-6
+RQ-2-7
+RQ-2-12
+RQ-2-8
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 32/32 [00:00<00:00, 32.55it/s]
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+You are using a model of type mistral to instantiate a model of type llama. This is not supported for all configurations of models and can yield errors.
+Loading checkpoint shards: 100%|████████████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:10<00:00,  5.24s/it]
+/home/paul/miniconda3/envs/llm_updated/lib/python3.9/site-packages/transformers/generation/configuration_utils.py:389: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.5` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`. This was detected when initializing the generation config instance, which means the corresponding file may hold incorrect parameterization and should be fixed.
+  warnings.warn(
+0it [00:00, ?it/s]2024-02-10 03:04:22.583867: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+9it [08:58, 59.79s/it]
+
+1. The System checks one condition that the requirement is satisfied that they only if they are able to. they do want to satisfy one thing they could do either a2.
+
+A. If I do want to say he answered one can do "I'll make him to.
+
+A. K2.
+
+"Say I do want to do.
+
+A. If I do want to.
+
+If I do.
+
+"Say I'll make to.
+
+A. If they do.
+
+If I do.
+
+If they do.
+
+If they do.
+
+"I'll make.
+
+If I do.
+
+Aay.
+
+"I do want to.
+
+If Iaay.
+
+If I'd do.
+
+If I'll aay.
+
+Aay.
+
+"Aay Iay.
+
+Aay.
+
+"If ay want.
+
+If Iay.
+
+"Aay Iay.
+
+If Iay.
+
+ax.
+
+"Aay."
+
+Ifay.
+
+"I'llay.
+
+"Aay.
+
+"Aay."
+
+ay.
+
+axay.
+
+"Noay."
+
+"Aay."
+
+"Aay."
+
+ax.
+
+axay.
+
+ay.
+
+axay.
+
+ax.
+
+ay.
+
+ax.
+
+"Oneay"
+
+"Itay"
+
+"Aay."
+
+"Aay."
+
+ay.
+
+ay.
+
+ay.
+
+ayay.
+
+axayay.
+
+"Aay"
+
+axayay.
+
+"Aay."
+
+ay.
+
+ayay.
+
+ayayayaay.
+
+ayayayay.
+
+ayayayay.
+
+ayayay.
+
+ayayayayayayayayayay
+
+ayayayayay.
+
+ayayaxayayayaayayay.
+
+ayayayay.
+
+ayayayayayayayayayayayayayayayayayayayayayayayayayayayayayayayayayayayayayayayayayayayayayayayayayayayayayayayayayayayayayayayayayayayayayayayayayayayayayayayayayayayayayayayayayayayayayayayayayayayayayayayayayayayayayayayayayayayayayayayayayayayayayayayayayayayayayayayayay
+14it [13:47, 57.73s/it]
+
+1. In the given answer, "If the settlement allows one to satisfy that one system can perform a certain action instead it can win a match a success, the one can do one thing can win one, it if one can do one thing without a success a success, either it can do a success one can win a success can win a success one a success one can win one can win can win one's one success can win one success one can win one success one can win a success if one can win a success one can win one success one can win a success one can win one can do one success a one can win one success one can win one success one can win one can win one success can win can win one success can win one can win can win can win one success one can win one can win one success one can can win one can win a success can win one can win one success one can win one can win one success one can win can win one success one can win one can win can win one can win one can win one can win a success one can win one can win one can win one can win one success one can win a success one can win one can win can win one can win one can win a can win one can win one can win a success can win one can win one can one success one can win a success one can win can one success can win one a one can win a success one can win a success one can win one can one can can can can win a success one can win can win one can can win a success one can win one can win one can win one can win one can one can win a success one can win one can win a success one can win one a success one can win a can can win one can a success one can a success one can win one can win one can win one can win a success one can win one can win one can win one can win a success one can win one can win one can one can win one can one can win a success one can one success one can win a success can win can one can win one can win one can win a success one can win one can win a success one can a can can win one can win one can win one can one can win one can win one a success can win one can one success a can can can one can win a success can win one can one can win one can win a one can one can a success one can a one can a one a can one can can win one can a can one can win one can win a can can one can a canaw a can one can be a success one can win a one can one can one can one a success one can can a one can one can can one can win one can a one can win one can one can win one can one can a one can one can can win can win a success can win one can a success one can one
+20it [19:30, 57.35s/it]
+
+1. The Logical answer: The system performs a specific action, if it "makes" one's purpose is to maintain it, if it does a specific action in order to do one thing it can do {It} one's. If it can do one thing to make it do a specific action after it does do a specific one does a thing it may do one's
+2. One can do a action after it one can do one thing if one can do one thing can do one's can do a one does a one's if a one does one can make one a one can do a one can do a if one can do one can can do one can do can one can do one can do one can do one can do a one can do one can do one can do one a can do a one can do one can do one can do one can do a one can do can do a one after do a one can do a can do one can do one a one can do one after one another can do one can do one can do one can do one a one can do one can do one can do one can do one can do can do one can do one can do one a one can do a one can do one can one can do one after one can one a one can do a one can do one can do one a one can do a one can do one can do one can do one can do a can one one can do one can do one a one can do one can do a one can do a one can do one can do one can do a one can do one can do one can one can do a one can do one can a one can do one a one a one after can do a one after a one can do a one can do one after one can do a one can do a one can a can one can one a can do a one can one can one can do a one can do one after a one can do one can do one can one a one can do one can do one can do one can do one can do a one can do a one can do one a one can one can do a one can do a one a one can do one can do one can do one can do a can do one a one can do one a one can do one a can do one can do a one can do one can do one can do a one can do can do a one a one can a one one can do a one can do one a one can do a can do one can do one can do a one can do one can do one can one can do a one a one can one can do one a one can one can do one a one can do a one can do a one can do a one can do a one can do one can one a one can do one can do one can one a one can do a can a one can one can
+24it [23:18, 57.15s/it]
+1. Prepositive answer: "Food" (It's up, they're satisfied, if they accept it's \phy2. "If I do want to\n2.
+If I'd to. "It's up, like "I'm a. If I can do want to.\;
+"If I can't it, it's up.
+"If I'd to.
+"If I'd to.
+"It up one.
+If I'd to.
+"One instead one.
+"It's up to.
+"If they do \O.
+"If they do a.
+If they one.
+"It up.
+"It's if.
+If aone.
+"It up.
+"If they do.
+"it up.
+If they up.
+"It's up.
+"it's up.
+"it up.
+"It's up.
+"it a to.
+"it up.
+"it up.
+"It's up.
+"it as.
+"It's up.
+"If they can't.
+"it up.
+"it up.
+If one can.
+"It up.
+"it's up.
+"If they can't.
+"it up.
+"It up.
+"It up.
+"it up.
+"it's if.
+"it up.
+"it up.
+"it one.
+"it up.
+"it up.
+"it can do one.
+"it up.
+If one can.
+"if one can.
+"if they one.
+"it up.
+"it up.
+"It's up.
+"it up.
+"it up.
+"it up.
+"it up.
+"It can't.
+"a one.
+"It as.
+"It up.
+"a one.
+"it can do.
+"a up.
+"it up.
+"it up.
+If a one.
+"a one.
+"a one.
+"a up.
+"a can.
+"It up.
+"It one.
+"a one.
+"it up.
+"It up.
+"it can.
+"it up.
+"it up.
+a one.
+"it up.
+"a one.
+"it up.
+"It as.
+"it up.
+"it up.
+"It up a.
+"it up.
+"a it.
+"it up.
+"it up a.
+"It up.
+"It up.
+a if.
+"it up
+43it [41:27, 57.05s/it]
+
+1. If the settlement can provide a medical evidence that the settlement can sustain stabilish.
+2. If one answers without it, I will do something, I will either do something it will.
+
+1. If I do something one cannot do No.
+
+If I do something one answer one can do I'll can do something.
+
+1. If I can do something one can do something, instead do
+
+If I'd do something, I can do something one can can can't, instead do something.
+
+If I'd do something one can do something, anything can do one can do.
+
+2. If I a can do one can do something.
+
+If I'd do one can can do something, instead do something can do.
+
+A.
+
+If I a can do can can do something, can one can do can do something can do.
+
+A.
+
+If a can do something, anything can do one can do something can do one can do one can do can do one can do one can do something.
+
+"An, a can do anything one can do one can one another, instead.
+
+If a can can do something, anything can do can do something can can do anything can do can do can do can can do one can do a one can do a can do something can do can one can do one can do one can do something, anything one can do can do can do anything a one can do one can do one can do can do something a can can one can do one can do can do something can do can do anything.
+
+I'd to can do can do something can do one can do do one can do one can do one can do something can do can do a one can do one can do can do one can do one can do one can do a one can do can do can do one can do can one do a can do one a one can do do can one can do one a can one can do one can do one can do one a one can do one can do can one can do something can a can do a can one can do one can do can one can one a one can do one can do a one can do something one can one can do one can do a one a can one can do a one can one can do a can do one can do one can do one can do a can do can do one can do one can a one can can do one can do can do can do one can do a one can do one can do one can do one can do one can can do one can one can do one can do one can do can do can do a can one a one can do can one a one can do a one can do one can do one can do can one can do one can do one can do a can do one can do one
+60it [57:36, 57.01s/it]
+
+1. If the settlement can satisfy that the system which one-sided answer as one would a4.
+2. If the settlement can do something one would do No5.
+2. If the settlement can do something one can do F.
+
+1. If one can do something one could do one would do something one another one can do.
+
+2. Can do one can do one could do one can do one can do something one can do something one can do one can do one can do one can do something one can do one can do one can do something one can do one another can do one can do one can do one can one can do one can do something one can do one can do something one can do one can do something one can do can do one can do one can do one can do one can do one can do one can do one can do one can do one can do do one can do one can do something one can do one can do a can do one can do a one can do one can do one can do one can do one can do one can do one can do something one can do can do one can do one can do one can do can do one can do one can do a one can do a one can do one can do one can do one can do one can do can do one can do a one can do one can do one can do a one can do a one can do one can do one can do one can do one can do a one can do one can do can do one a one can one can do one can do a one can do can do one can do one can do a can do one can do a can do one can do a one can do one can do a one can do one can do can do a one a one can a one can do one can one can do one can do a can do one can do a can one can do one a can do one can do one can do a one can one can do one can do one can one can a one can do one can do one can do a one can do a one can do one can do one can do one a one can one can do a one can a one can do a one can do one a one can do one can do can do one can do one can do a one can do one can do one can do one can do one can one can do a one can do a one can do a one can do a can do can do one a one can do a one can do a one can do can do one can do a one can do a one can do one can do a one can do a one a one can do a one can do one can do one can do can do one can do can do a one can do one can do a one can do one can do a one can do one can do one can do one a one can do a one can
+88it [1:24:19, 57.20s/it]
+1. The Logic System shall maintain that the settlement, one can say "s in order to satisfy that the settlement.
+A. I'd to say she/3 says she'd to perform a positive answer without a/3 a.
+
+A. If I'd to say she can say "s."
+
+It'd to say she'd to say that it would not can say she'd to.
+
+It's like a/3 a.
+
+"It as a to say I'd can't if a/3 a/3 to say she can't a saying she can say she can say "one more,
+
+a/3 to say she can say she can a/3/3 a.
+
+It can saying a can say she can say can do a/3 a can say a/3 a to say she can say one a/3 a/3.
+
+It's to say she can say can do one to can said a/3 a/3 can say she can say can say a/3 a can say a can can say a/3 can say a/3 can do.
+
+If one can a/3 a/3 a/3 a/3 a can can say a/3 a/3 a/3/3.
+
+It can a can say a/3 a can she/3 a/3 a/3/3 a/3 a/3 to say she can say a/3/3 a/3 can a/3 a/3 a/3 a/3 a/3a/3/3 cana a/3 a/3 a/3/3 a/3 a/3 a/3 a/3 a/3 a/3 a/3 a/3 a/3/3/3 a/3 a/3 a/3 a/3 a/3/3 a/3 a/3 a/3 a/3 a/3 a/3 a/3/3/3 a/3a/3/3a/3 a/3/3 a/3a a/3 a/3/3 a/3a/3 a/3 a/3 a/3/3 a/3/3a a/3 a/3a/3a a/3a/3 a/3 a/3 a/3a/3/3 a/3 a/3a/3a/3/3a/3a/3a/3 a/3a a/3/3/3a a/3a/3/3 a/3/3 a/3 a/3 a/3a/3a/3a/3/3 a/3a/3 a/3/3a/3a/3 a/3 a/3
+93it [1:29:04, 57.47s/it]
+Precision: 0, Recall: 0 for fold 0 and alpha 35.0 and number of heads 64
+predict
+undefined    90
+no            3
+Name: count, dtype: int64
+

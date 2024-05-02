@@ -1,0 +1,7 @@
+*.json
+*.pt
+*.jsonl
+*.aird
+**/capella/
+*.zip
+*.png

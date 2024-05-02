@@ -1,0 +1,21 @@
+For dataset fold 0 and alpha 55.0 and heads 14_27_15_2_
+predict
+False    30
+Name: count, dtype: int64
+final_answer
+undefined    30
+Name: count, dtype: int64
+For dataset fold 0 and alpha 75.0 and heads 14_27_15_2_
+predict
+False    30
+Name: count, dtype: int64
+final_answer
+undefined    30
+Name: count, dtype: int64
+For dataset fold 0 and alpha 95.0 and heads 14_27_15_2_
+predict
+False    30
+Name: count, dtype: int64
+final_answer
+undefined    30
+Name: count, dtype: int64

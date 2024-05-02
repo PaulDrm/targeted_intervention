@@ -1,0 +1,364 @@
+Train data: Precision: 0.7121212121212122, Recall: 0.94 for fold 0 and alpha 35.0 and head 10 23
+predict
+yes          74
+no           36
+undefined     6
+Name: count, dtype: int64
+Train data: Precision: 0.6533333333333333, Recall: 0.9423076923076923 for fold 0 and alpha 15.0 and head 10 23
+predict
+yes          84
+no           29
+undefined     3
+Name: count, dtype: int64
+Train data: Precision: 0.6805555555555556, Recall: 0.98 for fold 0 and alpha 15.0 and head 17 23
+predict
+yes          83
+no           28
+undefined     5
+Name: count, dtype: int64
+Train data: Precision: 0.7121212121212122, Recall: 0.94 for fold 0 and alpha 35.0 and head 10 23
+predict
+yes          74
+no           36
+undefined     6
+Name: count, dtype: int64
+Train data: Precision: 0.5921052631578947, Recall: 0.8181818181818182 for fold 0 and alpha 35.0 and head 17 23
+predict
+yes          79
+no           33
+undefined     4
+Name: count, dtype: int64
+Train data: Precision: 0.6153846153846154, Recall: 0.8421052631578947 for fold 0 and alpha 75.0 and head 10 23
+predict
+yes          86
+no           27
+undefined     3
+Name: count, dtype: int64
+Train data: Precision: 0.573170731707317, Recall: 0.9038461538461539 for fold 0 and alpha 75.0 and head 17 23
+predict
+yes          88
+no           27
+undefined     1
+Name: count, dtype: int64
+Train data: Precision: 0.6756756756756757, Recall: 0.9259259259259259 for fold 0 and alpha 105.0 and head 10 23
+predict
+yes          76
+no           35
+undefined     5
+Name: count, dtype: int64
+Train data: Precision: 0.6857142857142857, Recall: 0.9056603773584906 for fold 0 and alpha 150.0 and head 10 23
+predict
+yes          75
+no           31
+undefined    10
+Name: count, dtype: int64
+Train data: Precision: 1.0, Recall: 1.0 for fold 0 and alpha 200.0 and head 10 23
+predict
+yes          16
+no           11
+undefined     3
+Name: count, dtype: int64
+Train data: Precision: 0, Recall: 0 for fold 0 and alpha 500.0 and head 10 23
+predict
+undefined    30
+Name: count, dtype: int64
+Train data: Precision: 1.0, Recall: 1.0 for fold 0 and alpha 35.0 and head 11 8
+predict
+yes          15
+no           12
+undefined     3
+Name: count, dtype: int64
+Train data: Precision: 0.7894736842105263, Recall: 0.8823529411764706 for fold 0 and alpha 75.0 and head 11 8
+predict
+yes    19
+no     11
+Name: count, dtype: int64
+Train data: Precision: 1.0, Recall: 1.0 for fold 0 and alpha 5.0 and head 11 8
+predict
+yes          17
+no           11
+undefined     2
+Name: count, dtype: int64
+Train data: Precision: 1.0, Recall: 1.0 for fold 0 and alpha 35.0 and head 11 8
+predict
+yes          15
+no           12
+undefined     3
+Name: count, dtype: int64
+Train data: Precision: 0.7894736842105263, Recall: 0.8823529411764706 for fold 0 and alpha 75.0 and head 11 8
+predict
+yes    19
+no     11
+Name: count, dtype: int64
+Train data: Precision: 1.0, Recall: 0.875 for fold 0 and alpha 5.0 and head 4 31
+predict
+yes          17
+no            8
+undefined     5
+Name: count, dtype: int64
+Train data: Precision: 0.9333333333333333, Recall: 0.875 for fold 0 and alpha 35.0 and head 4 31
+predict
+yes          15
+no           12
+undefined     3
+Name: count, dtype: int64
+Train data: Precision: 0.6666666666666666, Recall: 0.9230769230769231 for fold 0 and alpha 75.0 and head 4 31
+predict
+yes          18
+no            8
+undefined     4
+Name: count, dtype: int64
+Train data: Precision: 1.0, Recall: 1.0 for fold 0 and alpha 5.0 and head 13 19
+predict
+yes          17
+no           11
+undefined     2
+Name: count, dtype: int64
+Train data: Precision: 1.0, Recall: 1.0 for fold 0 and alpha 35.0 and head 13 19
+predict
+yes          16
+no           13
+undefined     1
+Name: count, dtype: int64
+Train data: Precision: 1.0, Recall: 1.0 for fold 0 and alpha 75.0 and head 13 19
+predict
+yes          17
+no           12
+undefined     1
+Name: count, dtype: int64
+Train data: Precision: 1.0, Recall: 1.0 for fold 0 and alpha 35.0 and head 2 7
+predict
+yes          16
+no           10
+undefined     4
+Name: count, dtype: int64
+Train data: Precision: 1.0, Recall: 1.0 for fold 0 and alpha 75.0 and head 2 7
+predict
+yes          17
+no           12
+undefined     1
+Name: count, dtype: int64
+Train data: Precision: 1.0, Recall: 1.0 for fold 0 and alpha 35.0 and head 2 6
+predict
+yes          16
+no           12
+undefined     2
+Name: count, dtype: int64
+Train data: Precision: 1.0, Recall: 1.0 for fold 0 and alpha 75.0 and head 2 6
+predict
+no           14
+yes          14
+undefined     2
+Name: count, dtype: int64
+## Change of robustness parameter
+Train data: Precision: 1.0, Recall: 1.0 for fold 0 and alpha 35.0 and head 2 6
+predict
+yes          14
+no           13
+undefined     3
+Name: count, dtype: int64
+Train data: Precision: 1.0, Recall: 1.0 for fold 0 and alpha 75.0 and head 2 6
+predict
+yes    16
+no     14
+Name: count, dtype: int64
+Train data: Precision: 0, Recall: 0 for fold 0 and alpha 35.0 and head 13 0
+predict
+no           21
+yes           5
+undefined     4
+Name: count, dtype: int64
+Train data: Precision: 0, Recall: 0 for fold 0 and alpha 75.0 and head 13 0
+predict
+no           23
+undefined     7
+Name: count, dtype: int64
+Train data: Precision: 1.0, Recall: 0.8571428571428571 for fold 0 and alpha 35.0 and head 13 12
+predict
+yes          15
+no           11
+undefined     4
+Name: count, dtype: int64
+Train data: Precision: 1.0, Recall: 1.0 for fold 0 and alpha 35.0 and head 13 19
+predict
+yes          15
+no           13
+undefined     2
+Name: count, dtype: int64
+Train data: Precision: 0.7368421052631579, Recall: 0.9333333333333333 for fold 0 and alpha 35.0 and head 13 27
+predict
+yes          19
+no           10
+undefined     1
+Name: count, dtype: int64
+Train data: Precision: 1.0, Recall: 0.9285714285714286 for fold 0 and alpha 35.0 and head 13 28
+predict
+yes          16
+no           13
+undefined     1
+Name: count, dtype: int64
+Train data: Precision: 0.7894736842105263, Recall: 0.9375 for fold 0 and alpha 35.0 and head 13 29
+predict
+yes          19
+no           10
+undefined     1
+Name: count, dtype: int64
+Train data: Precision: 1.0, Recall: 0.9166666666666666 for fold 0 and alpha 75.0 and head 13 12
+predict
+no           13
+yes          13
+undefined     4
+Name: count, dtype: int64
+Train data: Precision: 1.0, Recall: 1.0 for fold 0 and alpha 75.0 and head 13 19
+predict
+yes    18
+no     12
+Name: count, dtype: int64
+Train data: Precision: 0.7647058823529411, Recall: 0.8666666666666667 for fold 0 and alpha 75.0 and head 13 27
+predict
+yes          20
+no            8
+undefined     2
+Name: count, dtype: int64
+Train data: Precision: 0.7368421052631579, Recall: 0.9333333333333333 for fold 0 and alpha 75.0 and head 13 28
+predict
+yes          19
+no           10
+undefined     1
+Name: count, dtype: int64
+Train data: Precision: 1.0, Recall: 1.0 for fold 0 and alpha 75.0 and head 13 29
+predict
+yes          17
+no           12
+undefined     1
+Name: count, dtype: int64
+Train data: Precision: 1.0, Recall: 1.0 for fold 0 and alpha 150.0 and head 13 12
+predict
+no     17
+yes    13
+Name: count, dtype: int64
+Train data: Precision: 1.0, Recall: 0.9230769230769231 for fold 0 and alpha 200.0 and head 13 12
+predict
+no           17
+yes          12
+undefined     1
+Name: count, dtype: int64
+Train data: Precision: 0.43333333333333335, Recall: 1.0 for fold 0 and alpha 150.0 and head 14 0
+predict
+yes    30
+Name: count, dtype: int64
+Train data: Precision: 1.0, Recall: 1.0 for fold 0 and alpha 150.0 and head 14 10
+predict
+no           15
+yes          13
+undefined     2
+Name: count, dtype: int64
+Train data: Precision: 0.4482758620689655, Recall: 0.9285714285714286 for fold 0 and alpha 150.0 and head 15 5
+predict
+yes    29
+no      1
+Name: count, dtype: int64
+Train data: Precision: 0.6190476190476191, Recall: 0.8666666666666667 for fold 0 and alpha 150.0 and head 15 6
+predict
+yes          21
+no            8
+undefined     1
+Name: count, dtype: int64
+Train data: Precision: 0.0, Recall: 0.0 for fold 0 and alpha 150.0 and head 15 7
+predict
+no     27
+yes     3
+Name: count, dtype: int64
+Train data: Precision: 0.7777777777777778, Recall: 0.875 for fold 0 and alpha 150.0 and head 16 6
+predict
+yes          18
+no           11
+undefined     1
+Name: count, dtype: int64
+Train data: Precision: 1.0, Recall: 1.0 for fold 0 and alpha 150.0 and head 17 20
+predict
+no     16
+yes    14
+Name: count, dtype: int64
+Train data: Precision: 0.6842105263157895, Recall: 0.9285714285714286 for fold 0 and alpha 35.0 and head 14 0
+predict
+yes          21
+no            7
+undefined     2
+Name: count, dtype: int64
+Train data: Precision: 0.7777777777777778, Recall: 0.875 for fold 0 and alpha 35.0 and head 14 10
+predict
+yes    18
+no     12
+Name: count, dtype: int64
+Train data: Precision: 0.7368421052631579, Recall: 0.9333333333333333 for fold 0 and alpha 35.0 and head 15 5
+predict
+yes          22
+no            7
+undefined     1
+Name: count, dtype: int64
+Train data: Precision: 0.65, Recall: 0.8125 for fold 0 and alpha 35.0 and head 15 6
+predict
+yes          20
+no            9
+undefined     1
+Name: count, dtype: int64
+Train data: Precision: 1.0, Recall: 1.0 for fold 0 and alpha 35.0 and head 15 7
+predict
+no           13
+yes          13
+undefined     4
+Name: count, dtype: int64
+Train data: Precision: 1.0, Recall: 1.0 for fold 0 and alpha 35.0 and head 16 6
+predict
+yes          15
+no           12
+undefined     3
+Name: count, dtype: int64
+Train data: Precision: 1.0, Recall: 0.9285714285714286 for fold 0 and alpha 35.0 and head 17 20
+predict
+no           16
+yes          13
+undefined     1
+Name: count, dtype: int64
+## Removing C regularization
+Train data: Precision: 1.0, Recall: 1.0 for fold 0 and alpha 35.0 and head 14 0
+predict
+yes    20
+no     10
+Name: count, dtype: int64
+Train data: Precision: 1.0, Recall: 0.8571428571428571 for fold 0 and alpha 35.0 and head 14 10
+predict
+yes          15
+no           10
+undefined     5
+Name: count, dtype: int64
+Train data: Precision: 0.5909090909090909, Recall: 1.0 for fold 0 and alpha 35.0 and head 15 5
+predict
+yes          25
+no            3
+undefined     2
+Name: count, dtype: int64
+Train data: Precision: 0.625, Recall: 0.8823529411764706 for fold 0 and alpha 35.0 and head 15 6
+predict
+yes    24
+no      6
+Name: count, dtype: int64
+Train data: Precision: 1.0, Recall: 0.9285714285714286 for fold 0 and alpha 35.0 and head 15 7
+predict
+no           16
+yes          13
+undefined     1
+Name: count, dtype: int64
+Train data: Precision: 1.0, Recall: 1.0 for fold 0 and alpha 35.0 and head 16 6
+predict
+yes          17
+no           11
+undefined     2
+Name: count, dtype: int64
+Train data: Precision: 0.7058823529411765, Recall: 0.8571428571428571 for fold 0 and alpha 35.0 and head 17 20
+predict
+yes          18
+no            9
+undefined     3
+Name: count, dtype: int64

@@ -1,0 +1,54 @@
+Train data: Precision: 0.6923076923076923, Recall: 0.9 for fold 0 and alpha 5.0 and head 13 0
+predict
+yes          70
+no           34
+undefined    12
+Name: count, dtype: int64
+Train data: Precision: 0.647887323943662, Recall: 0.92 for fold 0 and alpha 5.0 and head 13 11
+predict
+yes          74
+no           39
+undefined     3
+Name: count, dtype: int64
+Train data: Precision: 0.6712328767123288, Recall: 0.9074074074074074 for fold 0 and alpha 5.0 and head 31 14
+predict
+yes          76
+no           37
+undefined     3
+Name: count, dtype: int64
+Train data: Precision: 1.0, Recall: 0.0425531914893617 for fold 0 and alpha 35.0 and head 13 0
+predict
+no           93
+undefined    21
+yes           2
+Name: count, dtype: int64
+Train data: Precision: 0.8888888888888888, Recall: 0.8888888888888888 for fold 0 and alpha 35.0 and head 13 11
+predict
+no           57
+yes          53
+undefined     6
+Name: count, dtype: int64
+Train data: Precision: 0.6935483870967742, Recall: 0.9148936170212766 for fold 0 and alpha 35.0 and head 31 14
+predict
+yes          74
+no           35
+undefined     7
+Name: count, dtype: int64
+Train data: Precision: 0.43820224719101125, Recall: 0.9285714285714286 for fold 0 and alpha 35.0 and head 11 17
+predict
+yes          98
+undefined    12
+no            6
+Name: count, dtype: int64
+Train data: Precision: 0.64, Recall: 0.9795918367346939 for fold 0 and alpha 35.0 and head 31 13
+predict
+yes          81
+no           25
+undefined    10
+Name: count, dtype: int64
+Train data: Precision: 0.6984126984126984, Recall: 0.9166666666666666 for fold 0 and alpha 35.0 and head 31 22
+predict
+yes          75
+no           33
+undefined     8
+Name: count, dtype: int64

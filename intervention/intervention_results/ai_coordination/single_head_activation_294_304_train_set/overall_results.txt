@@ -1,0 +1,58 @@
+For dataset fold 0 and alpha 75.0 and head 14 27
+predict
+True     25
+False     5
+Name: count, dtype: int64
+final_answer
+(B)    16
+(A)    14
+Name: count, dtype: int64
+For dataset fold 0 and alpha 75.0 and head 15 2
+predict
+True     19
+False    11
+Name: count, dtype: int64
+final_answer
+(B)          16
+(A)          13
+undefined     1
+Name: count, dtype: int64
+For dataset fold 0 and alpha 95.0 and head 14 27
+predict
+True     24
+False     6
+Name: count, dtype: int64
+final_answer
+(B)    21
+(A)     9
+Name: count, dtype: int64
+For dataset fold 0 and alpha 95.0 and head 15 2
+predict
+True     18
+False    12
+Name: count, dtype: int64
+final_answer
+(B)          16
+(A)          12
+undefined     2
+Name: count, dtype: int64
+For dataset fold 0 and alpha 125.0 and head 14 27
+predict
+True     21
+False     9
+Name: count, dtype: int64
+final_answer
+(B)          20
+(A)           9
+undefined     1
+Name: count, dtype: int64
+For dataset fold 0 and alpha 125.0 and head 15 2
+predict
+True     19
+False    11
+Name: count, dtype: int64
+final_answer
+(B)          14
+(A)          14
+undefined     2
+Name: count, dtype: int64
