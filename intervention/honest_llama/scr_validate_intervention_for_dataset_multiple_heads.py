@@ -167,6 +167,9 @@ def main():
     parser.add_argument('--add_or_subtract', type=lambda x: (str(x).lower() == 'true'), default='true', help='if intervention is added or substract to activations')
     parser.add_argument('--test_set_input_path', type=str)
     parser.add_argument('--prompt_type', type=str, default="open_ended")
+
+    parser.add_argument('--normalize_with_activations', type=lambda x: (str(x).lower() == 'true'), default='true')
+
     args = parser.parse_args()
 
 

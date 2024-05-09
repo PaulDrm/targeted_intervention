@@ -99,6 +99,9 @@ def main():
     parser.add_argument('--add_or_subtract', type=lambda x: (str(x).lower() == 'true'), default='true', help='if intervention is added or substract to activations')
     parser.add_argument('--test_set_input_path', type=str)
     parser.add_argument('--prompt_type', type=str, default="open_ended")
+    
+    parser.add_argument('--add_proj_val_std', type=lambda x: (str(x).lower() == 'true'), default='true')
+
     args = parser.parse_args()
 
     # Print all arguments
@@ -245,7 +248,8 @@ def main():
                 com_directions = None
             interventions = get_interventions_dict(top_heads, probes, tuning_activations, num_heads, args.use_center_of_mass, args.use_random_dir, com_directions)
 
-            def lt_modulated_vector_add(head_output, layer_name, start_edit_location='lt'): 
+            def lt_modulated_vector_add(head_output, layer_name, start_edit_location='lt', add_proj_val_std = args.add_proj_val_std ): 
+ 
                     head_output = rearrange(head_output, 'b s (h d) -> b s h d', h=num_heads)
                     for head, direction, proj_val_std in interventions[layer_name]:
                         #print(head)
@@ -253,7 +257,10 @@ def main():
                         direction_to_add = torch.tensor(direction).to(head_output.device.index)
                         #print(direction_to_add)
                         if start_edit_location == 'lt': 
-                            head_output[:, -1, head, :] += args.alpha * proj_val_std * direction_to_add  
+                            if add_proj_val_std: 
+                                head_output[:, -1, head, :] += args.alpha * proj_val_std * direction_to_add  
+                            else: 
+                                head_output[:, -1, head, :] += args.alpha * direction_to_add
                         else: 
                             head_output[:, start_edit_location:, head, :] += args.alpha * proj_val_std * direction_to_add
                     

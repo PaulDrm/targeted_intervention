@@ -5,7 +5,8 @@
 #CONFIG=$(jq '.' experiments/ai_coordination/config_targeted_test_single_heads_294_train_com.json)
 #CONFIG=$(jq '.' experiments/ai_coordination/config_train_sets_test_single_heads_294_304_train_com.json)
 
-CONFIG=$(jq '.' experiments/ai_coordination/config_train_set_tests_intervention_304.json)
+#CONFIG=$(jq '.' experiments/ai_coordination/config_train_set_tests_intervention_304.json)
+CONFIG=$(jq '.' experiments/ai_coordination/config_example_307_extra_heads_com.json)
 
 model_name=$(echo $CONFIG | jq -r '.model_name')
 input_path=$(echo $CONFIG | jq -r '.input_path')
