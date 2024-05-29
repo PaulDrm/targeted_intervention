@@ -158,7 +158,7 @@ def main():
     parser.add_argument('--use_random_dir', action='store_true', help='use random direction', default=False)
     #parser.add_argument('--device', type=int, default=0, help='device')
     parser.add_argument('--seed', type=int, default=42, help='seed')
-    parser.add_argument("--list_of_heads", type=str, action=ParseListOfLists, help="Input should be a list of lists (e.g., [['11', '0'], ['13', '0']]).")
+    parser.add_argument("--list_of_heads", type=str, default="", action=ParseListOfLists, help="Input should be a list of lists (e.g., [['11', '0'], ['13', '0']]).")
 
 
     parser.add_argument('--input_path', type=str, help='input path')
@@ -168,18 +168,24 @@ def main():
     parser.add_argument('--test_set_input_path', type=str)
     parser.add_argument('--prompt_type', type=str, default="open_ended")
 
-    parser.add_argument('--normalize_with_activations', type=lambda x: (str(x).lower() == 'true'), default='true')
+    #parser.add_argument('--normalize_with_activations', type=lambda x: (str(x).lower() == 'true'), default='true')
 
     args = parser.parse_args()
 
+    if not os.path.exists(f"{args.output_path}"):
+        os.mkdir(f"{args.output_path}")
 
     # Print all arguments
     print("Parsed arguments:")
     for arg, value in vars(args).items():
         print(f"{arg}: {value}")
+    if args.list_of_heads != "":
+        list_of_heads = [[int(head[0]), int(head[1])] for head in args.list_of_heads]
+        print("Parsed list of lists:", list_of_heads)
+    
+    else:
+        list_of_heads = None
 
-    list_of_heads = [[int(head[0]), int(head[1])] for head in args.list_of_heads]
-    print("Parsed list of lists:", list_of_heads)
 
 
     df = pd.read_json(args.input_path)
@@ -307,7 +313,14 @@ def main():
         num_layers = 32
 
         top_heads, probes = get_top_heads(train_set_idxs, val_set_idxs, separated_activations, separated_labels, num_layers, num_heads, args.seed, args.num_heads, args.use_random_dir, specific_heads=list_of_heads)#[(args.layer,args.head)]) #(13,0)]) #(14, 1)]) #[(31,14)])
+        
         print("Heads intervened: ", sorted(top_heads))
+        print("Number of heads intervened: ", len(top_heads))
+        # print("Type of top heads: ", type(top_heads))
+        # print("Type of one head: ", type(top_heads[0]))
+        # print("Type of one entry in head: ", type(top_heads[0][0]))
+        top_heads = [[int(item) for item in tup] for tup in top_heads]
+
         tuning_activations = separated_activations
         tuning_activations = np.concatenate(tuning_activations, axis = 0)
         
@@ -395,7 +408,7 @@ def main():
             if args.dataset_name != "requirements_data" and args.prompt_type == "ab":
                 prompt = prompt+ " ("
 
-            # if counter ==50: 
+            #if counter ==5: 
             #     break
             if args.alpha == 0: 
                             output = evaluate(
@@ -452,9 +465,10 @@ def main():
         #     curr_fold_results.correct = correct
             #print(curr_fold_results.head(3))
         head_string = ""
-        for head in list_of_heads:
+        for head in top_heads:#list_of_heads:
             head_string = head_string + str(head[0]) + "_"+ str(head[1]) + "_"
-        curr_fold_results.to_json(f"{args.output_path}/results_intervention_{int(args.alpha)}_{head_string}.json", orient='records', indent=4)
+        
+        curr_fold_results.to_json(f"{args.output_path}/results_intervention_{int(args.alpha)}_number_heads_{len(top_heads)}.json", orient='records', indent=4)
             
         #print(f"Train data: Precision: {precision}, Recall: {recall} for fold {i} and alpha {args.alpha} and head {args.layer} {args.head}")
         if args.prompt_type != "open_ended":
@@ -473,7 +487,7 @@ def main():
             value_counts = curr_fold_results.predict.value_counts().to_dict()
             value_counts['alpha'] = args.alpha
             #value_counts['layer'] = args.layer
-            value_counts['heads'] = args.list_of_heads
+            value_counts['heads'] = top_heads#.tolist() #args.list_of_heads
 
             # Path to your JSON file
             json_file_path = f'{args.output_path}/overall_results.json'

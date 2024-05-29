@@ -532,20 +532,6 @@ def main(inputs):
 
 if __name__ == "__main__":
 
-    #req = "The communication subsystem shall allow to transmit all the required science and housekeeping data to Earth."
-    #req = "Goal Requirement: The spacecraft shall have a mass < 1000kg."
-    # "The spacecraft design shall budget a Δv of minimum 40 m/s for early operation phase."
-    
-    # inputs = {
-    #       "input_path": "JWST_requirements.json",
-    #       "consistency": 1,#3,
-    #       "model": "openchat/openchat_3.5",# "lmsys/vicuna-13b-v1.5" #  
-    #       "prompt_path": "./Machine_Learning/prompt_openchat.txt", #"./Machine_Learning/prompt_internal_cot.txt",#
-    #       "cot": True,#False, 
-    #       "internal_cot": False,#True,
-    #       "early_stopping": True
-    #       }
-
     parser = argparse.ArgumentParser(description='Process the config file path.')
     parser.add_argument('config_path', help='Path to the config.json file')
     

@@ -1,0 +1,40 @@
+For dataset fold 0 and alpha 35.0 and heads 12_11_14_27_15_2_
+predict
+True     25
+False     5
+Name: count, dtype: int64
+final_answer
+(B)          15
+(A)          12
+undefined     3
+Name: count, dtype: int64
+For dataset fold 0 and alpha 55.0 and heads 12_11_14_27_15_2_
+predict
+True     24
+False     6
+Name: count, dtype: int64
+final_answer
+(A)          15
+(B)          14
+undefined     1
+Name: count, dtype: int64
+For dataset fold 0 and alpha 75.0 and heads 12_11_14_27_15_2_
+predict
+True     17
+False    13
+Name: count, dtype: int64
+final_answer
+(B)          15
+undefined     8
+(A)           7
+Name: count, dtype: int64
+For dataset fold 0 and alpha 90.0 and heads 12_11_14_27_15_2_
+predict
+False    16
+True     14
+Name: count, dtype: int64
+final_answer
+(B)          12
+undefined    12
+(A)           6
+Name: count, dtype: int64

@@ -51,6 +51,37 @@ def process_item_ab(
         "a_prob": a_prob,
         "b_prob": b_prob,
     }
+B_INST, E_INST = "[INST]", "[/INST]"
+def process_item_ab_cot(
+    item: Dict[str, str],
+    model: LlamaWrapper,
+    system_prompt: Optional[str],
+    a_token_id: int,
+    b_token_id: int,
+) -> Dict[str, str]:
+    
+    # print(item)
+    # suffix = ' Include in your answer "Answer: (A) / (B)".'
+
+    # question: str = item["question"] + suffix
+
+    # temp = {}
+    # # temp["data_id"] = data_id
+    # temp['question'] = question
+    # temp["prompt"] = f"{B_INST} {question} {E_INST}"
+    # #temp["complete_inputs"] = create_llama_chat(row[1]["question"], row[1]["answer_matching_behavior"])
+    # temp["gt"] = item["gt"]
+    #dataset_single.append(temp)
+
+    tokenized_input = model.tokenizer([item["prompt"]]).input_ids#.to(model.device)
+
+    model_output = model.generate_text_abcot(tokenized_input
+    , max_new_tokens=600#100
+    )
+
+    item["output"] = model_output.split(E_INST)[-1].strip()
+ 
+    return item
 
 def process_item_open_ended(
     item: Dict[str, str],
@@ -61,7 +92,7 @@ def process_item_open_ended(
 ) -> Dict[str, str]:
     question = item["question"]
     model_output = model.generate_text(
-        user_input=question, system_prompt=system_prompt, max_new_tokens=100
+        user_input=question, system_prompt=system_prompt, max_new_tokens=600#100
     )
     return {
         "question": question,
@@ -94,26 +125,33 @@ def process_item_tqa_mmlu(
         "category": category,
     }
 
+def get_input(input_file):
+    with open(input_file, "r") as f:
+        data = json.load(f)
+    return data
+
 
 def test_steering(
-    layers: List[int], multipliers: List[int], settings: SteeringSettings, overwrite=False
+    layers: List[int], multipliers: List[int], settings: SteeringSettings, overwrite=False, input_path=None, output_path=None
 ):
     """
     layers: List of layers to test steering on.
     multipliers: List of multipliers to test steering with.
     settings: SteeringSettings object.
     """
-    save_results_dir = get_results_dir(settings.behavior)
+    save_results_dir = get_results_dir(settings.behavior) if output_path == None  else output_path
     if not os.path.exists(save_results_dir):
         os.makedirs(save_results_dir)
     process_methods = {
         "ab": process_item_ab,
+        "ab_cot": process_item_ab_cot,
         "open_ended": process_item_open_ended,
         "truthful_qa": process_item_tqa_mmlu,
         "mmlu": process_item_tqa_mmlu,
     }
     test_datasets = {
         "ab": get_ab_test_data(settings.behavior),
+        "ab_cot": get_input(input_path),
         "open_ended": get_open_ended_test_data(settings.behavior),
         "truthful_qa": get_truthful_qa_data(),
         "mmlu": get_mmlu_data(),
@@ -185,7 +223,7 @@ if __name__ == "__main__":
         "--type",
         type=str,
         required=True,
-        choices=["ab", "open_ended", "truthful_qa", "mmlu"],
+        choices=["ab", "ab_cot", "open_ended", "truthful_qa", "mmlu"],
     )
     parser.add_argument("--system_prompt", type=str, default=None, choices=["pos", "neg"], required=False)
     parser.add_argument("--override_vector", type=int, default=None)
@@ -195,6 +233,9 @@ if __name__ == "__main__":
     parser.add_argument("--override_model_weights_path", type=str, default=None)
     parser.add_argument("--overwrite", action="store_true", default=False)
     
+    parser.add_argument("--input_path", type=str, default=False)
+    parser.add_argument("--output_path", type=str, default=False)
+
     args = parser.parse_args()
 
     steering_settings = SteeringSettings()
@@ -213,4 +254,6 @@ if __name__ == "__main__":
             multipliers=args.multipliers,
             settings=steering_settings,
             overwrite=args.overwrite,
+            input_path=args.input_path,
+            output_path=args.output_path,
         )

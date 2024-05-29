@@ -1,12 +1,29 @@
 #!/bin/bash
 
 #CONFIG=$(jq '.' experiments/ai_coordination/config_targeted_test_single_head.json)
-
 #CONFIG=$(jq '.' experiments/ai_coordination/config_targeted_test_single_heads_294_train_com.json)
 #CONFIG=$(jq '.' experiments/ai_coordination/config_train_set_tests_intervention_294_multi_heads.json)
 #CONFIG=$(jq '.' experiments/ai_coordination/config_open_ended_test_multiple_heads_ab_cot_294_train_extract.json)
+#CONFIG=$(jq '.' experiments/ai_coordination/config_train_set_tests_intervention_294_304_multi_heads.json)
+#CONFIG=$(jq '.' experiments/ai_coordination/config_train_set_tests_intervention_294_304_307_multi_heads.json)
+#CONFIG=$(jq '.' experiments/ai_coordination/config_train_set_tests_intervention_294_304_307_multi_heads.json)
+#CONFIG=$(jq '.' experiments/ai_coordination/config_294_304_307_new_multi_heads_on_373_more_heads.json)
+#CONFIG=$(jq '.' experiments/ai_coordination/config_294_304_307_373_multi_heads_on_373.json)
+#CONFIG=$(jq '.' experiments/ai_coordination/config_example_307_multi_heads.json)
+#CONFIG=$(jq '.' experiments/ai_coordination/config_example_307_multi_heads_12_11_14_27_13_18.json)
+# Default configuration file
+CONFIG_FILE="experiments/ai_coordination/config_train_set_tests_intervention_294_304_307_new_multi_heads.json"
 
-CONFIG=$(jq '.' experiments/ai_coordination/config_train_set_tests_intervention_294_304_multi_heads.json)
+# Check if a configuration file is provided
+if [ -n "$1" ]; then
+  CONFIG_FILE="$1"
+else
+  echo "Usage: $0 <config_file>"
+  echo "Using default configuration file: $CONFIG_FILE"
+fi
+
+# Read and parse the configuration file
+CONFIG=$(jq '.' "$CONFIG_FILE")
 
 model_name=$(echo $CONFIG | jq -r '.model_name')
 input_path=$(echo $CONFIG | jq -r '.input_path')

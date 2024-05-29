@@ -1,0 +1,10 @@
+For dataset fold 0 and alpha 35.0 and heads 12_11_13_18_14_27_15_2_
+predict
+True     515
+False    100
+Name: count, dtype: int64
+final_answer
+(A)          321
+(B)          281
+undefined     13
+Name: count, dtype: int64

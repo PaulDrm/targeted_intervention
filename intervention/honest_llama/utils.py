@@ -781,15 +781,17 @@ def train_probes(seed, train_set_idxs, val_set_idxs, separated_head_wise_activat
     #heads = [(17, 17)]
     #heads = None
     #heads = [(0,26), (14,0), (14, 3), (15,5), (15,6), (17,12)]
-
+    rm_outliers = False
     #heads= None
+    if rm_outliers:
+                print("outliers will be removed")
     if heads == None:
 
         for layer in tqdm(range(num_layers)):
             #print("Test") 
 
-            rm_outliers = True #True
-
+            #rm_outliers = False #True
+            
             for head in range(num_heads): 
                 X_train = all_X_train[:,layer,head,:]
                 X_val = all_X_val[:,layer,head,:]
@@ -808,11 +810,13 @@ def train_probes(seed, train_set_idxs, val_set_idxs, separated_head_wise_activat
                 # Filtering for outliers
                 
                 if rm_outliers:
-                    print("Removing outliers")
+                    #print("Removing outliers")
                     X_val, y_val = remove_outliers(X_train, X_val, y_val)
                     X_train, y_train = remove_outliers(X_train, X_train, y_train)
 
-                clf, train_acc = grid_search(X_train, y_train)
+                #clf, train_acc = grid_search(X_train, y_train)
+
+                clf = LogisticRegression(random_state=seed, max_iter=10000).fit(X_train, y_train)
 
                 y_val_pred = clf.predict(X_val)
                 all_head_accs.append(accuracy_score(y_val, y_val_pred))
@@ -823,7 +827,7 @@ def train_probes(seed, train_set_idxs, val_set_idxs, separated_head_wise_activat
     else: 
         print(f"Running probes for {str(heads)} heads")
         reduce_dim = False
-        rm_outliers = True #True
+         #True
         #slice_id = 128
         #probes = np.zeros(1024)
         # Desired length of the list
@@ -939,14 +943,14 @@ def get_interventions_dict(top_heads, probes, tuning_activations, num_heads, use
         interventions[f"model.layers.{layer}.self_attn.{module}"] = [] 
     for layer, head in top_heads:
         if use_center_of_mass: 
-            print(f"Layer: {layer}, Head: {head}")
+            #print(f"Layer: {layer}, Head: {head}")
             direction = com_directions[layer_head_to_flattened_idx(layer, head, num_heads)]
         elif use_random_dir: 
             direction = np.random.normal(size=(128,))
         else: 
             direction = probes[layer_head_to_flattened_idx(layer, head, num_heads)].coef_
         direction = direction / np.linalg.norm(direction)
-        print(direction.shape)
+        #print(direction.shape)
         activations = tuning_activations[:,layer,head,:direction.shape[-1]] # batch x 128
         proj_vals = activations @ direction.T
         proj_val_std = np.std(proj_vals)

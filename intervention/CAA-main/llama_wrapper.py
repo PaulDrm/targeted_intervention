@@ -125,7 +125,7 @@ class LlamaWrapper:
             self.model_name_path, token=hf_token
         )
         self.model = AutoModelForCausalLM.from_pretrained(
-            self.model_name_path, token=hf_token
+            self.model_name_path, token=hf_token, torch_dtype=t.float16, device_map="auto"
         )
         if override_model_weights_path is not None:
             self.model.load_state_dict(t.load(override_model_weights_path))
@@ -133,6 +133,7 @@ class LlamaWrapper:
             self.model = self.model.half()
         self.model = self.model.to(self.device)
         if use_chat:
+            #print("Using chat model")
             self.END_STR = t.tensor(self.tokenizer.encode(ADD_AFTER_POS_CHAT)[1:]).to(
                 self.device
             )
@@ -171,9 +172,21 @@ class LlamaWrapper:
             tokens = tokenize_llama_base(tokenizer=self.tokenizer, user_input=user_input, model_output=model_output)
         tokens = t.tensor(tokens).unsqueeze(0).to(self.device)
         return self.generate(tokens, max_new_tokens=max_new_tokens)
+    
+    def generate_text_abcot(self, tokens, max_new_tokens: int = 50) -> str:
+        # if self.use_chat:
+        #     tokens = tokenize_llama_chat(
+        #         tokenizer=self.tokenizer, user_input=user_input, model_output=model_output, system_prompt=system_prompt
+        #     )
+        # else:
+        #     tokens = tokenize_llama_base(tokenizer=self.tokenizer, user_input=user_input, model_output=model_output)
+        tokens = t.tensor(tokens).to(self.device) #.unsqueeze(0)
+        #print(tokens)
+        return self.generate(tokens, max_new_tokens=max_new_tokens)
 
     def get_logits(self, tokens):
         with t.no_grad():
+            #print(tokens[0])
             instr_pos = find_instruction_end_postion(tokens[0], self.END_STR)
             self.set_after_positions(instr_pos)
             logits = self.model(tokens).logits

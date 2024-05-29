@@ -3,6 +3,8 @@
 
 CONFIG=$(jq '.' experiments/ai_coordination/config_open_ended_test_single_heads_ab_cot_294.json)
 CONFIG=$(jq '.' experiments/ai_coordination/config_open_ended_test_single_heads_ab_cot_294_train_extract.json)
+
+CONFIG=$(jq '.' experiments/ai_coordination/config_294_304_307_single_heads_on_373.json)
 model_name=$(echo $CONFIG | jq -r '.model_name')
 input_path=$(echo $CONFIG | jq -r '.input_path')
 output_path=$(echo $CONFIG | jq -r '.output_path')

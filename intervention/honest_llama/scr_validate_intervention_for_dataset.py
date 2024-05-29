@@ -161,6 +161,10 @@ def main():
     for arg, value in vars(args).items():
         print(f"{arg}: {value}")
 
+    if not os.path.exists(f"{args.output_path}"):
+        os.mkdir(f"{args.output_path}")
+
+
     df = pd.read_json(args.input_path)
    
     if args.dataset_name != "requirements_data":
@@ -404,6 +408,7 @@ def main():
             #print(output)
             
             if args.dataset_name != "requirements_data" and args.prompt_type == "ab":
+                print("lol")
                 output = "(" +output
             
             #### --> 
@@ -433,7 +438,7 @@ def main():
 
         curr_fold_results.to_json(f"{args.output_path}/results_{int(args.alpha)}_{args.layer}_{args.head}_{str(args.use_center_of_mass)}.json", orient='records', indent=4)
 
-            
+
         #print(f"Train data: Precision: {precision}, Recall: {recall} for fold {i} and alpha {args.alpha} and head {args.layer} {args.head}")
         if args.prompt_type != "open_ended":
             print(curr_fold_results.predict.value_counts())

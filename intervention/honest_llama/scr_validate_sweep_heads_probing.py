@@ -78,7 +78,6 @@ def load_model(model_name):
 
     return tokenizer, model 
 
-
 def main(): 
     parser = argparse.ArgumentParser()
     parser.add_argument("--model_name", type=str, default='llama_7B', help='model name')
@@ -99,7 +98,6 @@ def main():
     parser.add_argument('--add_or_subtract', type=lambda x: (str(x).lower() == 'true'), default='true', help='if intervention is added or substract to activations')
     parser.add_argument('--test_set_input_path', type=str)
     parser.add_argument('--prompt_type', type=str, default="open_ended")
-    
     parser.add_argument('--add_proj_val_std', type=lambda x: (str(x).lower() == 'true'), default='true')
 
     args = parser.parse_args()
@@ -221,7 +219,7 @@ def main():
             
     else: 
         probes = []
-    for layer in range(num_layers):
+    for layer in range(8,num_layers):
 
         for h in range(num_heads):
 
@@ -376,7 +374,7 @@ def main():
 
                 # Path to your JSON file
                 json_file_path = f'{args.output_path}/overall_results.json'
-                # Load existing data fr<om the JSON file
+                # Load existing data from the JSON file
                 try:
                     with open(json_file_path, 'r') as file:
                         data = json.load(file)

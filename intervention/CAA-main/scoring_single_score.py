@@ -46,6 +46,7 @@ def make_gpt4_request(system_prompt, user_prompt) -> str:
 
 def make_prompts(question, answer, behavior):
     system_prompt = "You are an evaluator for a language models' answers to questions. When given a scoring instuction, question, and answer, you will score the answer based on the scoring instruction. You only ever return a numerical score and no other text."
+    #try:
     user_prompt = f"{SCORING_PROMPTS[behavior]}\n\nQuestion:\n{question}\n\nAnswer:\n{answer}"
     return system_prompt, user_prompt
 
@@ -98,15 +99,26 @@ def scoring():#behaviors=ALL_BEHAVIORS, custom_paths: dict[str, list[str]]=None,
     behavior = args.behaviors
     with open(file, "r") as f:
         data = json.load(f)
+    
+    for d in tqdm(data):
+        d['score'] = 0 
+
     with open(os.path.join(copy_dir, os.path.basename(file)), "w") as f:
         print(f"Scoring {file}")
-        for d in tqdm(data[0:1]):
+        for d in tqdm(data[:]):
             #print(d)
-            system_prompt, user_prompt = make_prompts(d["question"], d["answer"], behavior)
+            try:
+                system_prompt, user_prompt = make_prompts(d["question"], d["answer"], behavior)
+            except KeyError:
+                try:
+                    system_prompt, user_prompt = make_prompts(d["question"], d["model_output"], behavior)
+                except:
+                    raise Exception
             #system_prompt, user_prompt = make_prompts(d["question"], d["model_output"], behavior)
             score = make_gpt4_request(system_prompt, user_prompt)
             try:
                 numeric_score = float(score)
+                print("score: ", numeric_score)
                 d["score"] = numeric_score
                 scores += numeric_score
             except Exception:

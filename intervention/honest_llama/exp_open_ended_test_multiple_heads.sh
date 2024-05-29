@@ -6,7 +6,23 @@
 #CONFIG=$(jq '.' experiments/ai_coordination/config_train_set_tests_intervention_294_multi_heads.json)
 #CONFIG=$(jq '.' experiments/ai_coordination/config_open_ended_test_multiple_heads_ab_cot_294_train_extract.json)
 
-CONFIG=$(jq '.' experiments/ai_coordination/config_open_ended_test_multiple_heads_ab_cot_294_304_train_extract.json)
+#CONFIG=$(jq '.' experiments/ai_coordination/config_open_ended_test_multiple_heads_ab_cot_294_304_train_extract.json)
+
+#CONFIG=$(jq '.' experiments/ai_coordination/config_open_ended_test_multiple_heads_ab_cot_294_304_307_train_extract.json)
+
+CONFIG_FILE="experiments/ai_coordination/config_open_ended_test_multiple_heads_ab_cot_294_304_307_test.json"
+
+# Check if a configuration file is provided
+if [ -n "$1" ]; then
+  CONFIG_FILE="$1"
+else
+  echo "Usage: $0 <config_file>"
+  echo "Using default configuration file: $CONFIG_FILE"
+fi
+
+# Read and parse the configuration file
+CONFIG=$(jq '.' "$CONFIG_FILE")
+
 
 model_name=$(echo $CONFIG | jq -r '.model_name')
 input_path=$(echo $CONFIG | jq -r '.input_path')
