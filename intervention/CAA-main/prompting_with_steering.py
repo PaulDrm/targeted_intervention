@@ -126,6 +126,7 @@ def process_item_tqa_mmlu(
     }
 
 def get_input(input_file):
+    print(f"Loading data from {input_file}...")
     with open(input_file, "r") as f:
         data = json.load(f)
     return data
@@ -149,6 +150,8 @@ def test_steering(
         "truthful_qa": process_item_tqa_mmlu,
         "mmlu": process_item_tqa_mmlu,
     }
+    print(settings.behavior)
+    print(input_path)
     test_datasets = {
         "ab": get_ab_test_data(settings.behavior),
         "ab_cot": get_input(input_path),
@@ -156,6 +159,7 @@ def test_steering(
         "truthful_qa": get_truthful_qa_data(),
         "mmlu": get_mmlu_data(),
     }
+    print(f"Loading model...")
     model = LlamaWrapper(
         HUGGINGFACE_TOKEN,
         size=settings.model_size,
@@ -167,6 +171,7 @@ def test_steering(
     model.set_save_internal_decodings(False)
     test_data = test_datasets[settings.type]
     for layer in layers:
+        print(f"Testing layer {layer}...")
         name_path = model.model_name_path
         if settings.override_vector_model is not None:
             name_path = settings.override_vector_model
@@ -178,6 +183,7 @@ def test_steering(
             vector = vector.half()
         vector = vector.to(model.device)
         for multiplier in multipliers:
+            print(f"Testing multiplier {multiplier}...")
             result_save_suffix = settings.make_result_save_suffix(
                 layer=layer, multiplier=multiplier
             )
@@ -237,7 +243,7 @@ if __name__ == "__main__":
     parser.add_argument("--output_path", type=str, default=False)
 
     args = parser.parse_args()
-
+    print(args)
     steering_settings = SteeringSettings()
     steering_settings.type = args.type
     steering_settings.system_prompt = args.system_prompt
@@ -246,7 +252,7 @@ if __name__ == "__main__":
     steering_settings.use_base_model = args.use_base_model
     steering_settings.model_size = args.model_size
     steering_settings.override_model_weights_path = args.override_model_weights_path
-
+    print(args.input_path)
     for behavior in args.behaviors:
         steering_settings.behavior = behavior
         test_steering(

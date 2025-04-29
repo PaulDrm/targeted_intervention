@@ -5,4 +5,4 @@ type="open_ended"
 # Define the arrays
 multipliers=(1 2 5)
 layers=(12 13 15)
-python prompting_with_steering.py --behaviors "coordinate-other-ais" --layers $layers --multipliers $multipliers --type $type --model_size "7b" --output_path $output_path
+python prompting_with_steering.py --behaviors "coordinate-other-ais" --layers $layers --multipliers $multipliers --type $type --model_size "7b" --output_path $output_path --input_path $input_path

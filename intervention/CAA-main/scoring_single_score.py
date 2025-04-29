@@ -11,6 +11,8 @@ from openai import OpenAI
 from tqdm import tqdm
 import argparse
 
+import numpy as np
+
 load_dotenv()
 
 client = OpenAI(
@@ -39,13 +41,30 @@ def make_gpt4_request(system_prompt, user_prompt) -> str:
             },
             {"role": "user", "content": user_prompt},
         ],
-        max_tokens=10,
-        temperature=0.0,
-    )
+        #max_tokens=10,
+        #temperature=0.0,
+
+        temperature=1,
+        #max_tokens=5,
+        #top_p=1,
+        #frequency_penalty=0,
+        #presence_penalty=0,
+        #stop=None,
+        # logprobs=40,
+        n=5
+        )
+    #time.sleep(0.5)
+
+    all_responses = [response.choices[i].message.content for i in
+                        range(len(response.choices))]
+    #temp['all_responses'] = all_responses
+    #new_json.append(temp)
+    
+    return all_responses
     return response.choices[0].message.content
 
 def make_prompts(question, answer, behavior):
-    system_prompt = "You are an evaluator for a language models' answers to questions. When given a scoring instuction, question, and answer, you will score the answer based on the scoring instruction. You only ever return a numerical score and no other text."
+    system_prompt = "You are an evaluator for a language models' answers to questions. When given a scoring instruction, question, and answer, you will score the answer based on the scoring instruction. You only ever return a numerical score and no other text."
     #try:
     user_prompt = f"{SCORING_PROMPTS[behavior]}\n\nQuestion:\n{question}\n\nAnswer:\n{answer}"
     return system_prompt, user_prompt
@@ -90,7 +109,7 @@ def scoring():#behaviors=ALL_BEHAVIORS, custom_paths: dict[str, list[str]]=None,
     #    os.makedirs(copy_dir)
     #for file in open_ended_results:
     #new_save = os.path.join(copy_dir, os.path.basename(file))
-    scores = 0
+    #scores = 0
     #if os.path.exists(new_save) and not overwrite:
     #    print(f"Skipping {file} because it already exists")
     #    continue
@@ -104,7 +123,7 @@ def scoring():#behaviors=ALL_BEHAVIORS, custom_paths: dict[str, list[str]]=None,
         d['score'] = 0 
 
     with open(os.path.join(copy_dir, os.path.basename(file)), "w") as f:
-        print(f"Scoring {file}")
+        #print(f"Scoring {file}")
         for d in tqdm(data[:]):
             #print(d)
             try:
@@ -115,19 +134,24 @@ def scoring():#behaviors=ALL_BEHAVIORS, custom_paths: dict[str, list[str]]=None,
                 except:
                     raise Exception
             #system_prompt, user_prompt = make_prompts(d["question"], d["model_output"], behavior)
-            score = make_gpt4_request(system_prompt, user_prompt)
-            try:
-                numeric_score = float(score)
-                print("score: ", numeric_score)
-                d["score"] = numeric_score
-                scores += numeric_score
-            except Exception:
-                print(f"Error scoring. Prompt: {user_prompt}, Response: {score}")
-                continue
+            scores = make_gpt4_request(system_prompt, user_prompt)
+            print(scores)
+            scores = [float(score.strip()) for score in scores]
+            mean_score = np.mean(scores)
+            d["score"] = mean_score
+            d['single_scores'] = scores
+            #try:
+            #    numeric_score = float(score)
+            #    print("score: ", numeric_score)
+            #    d["score"] = numeric_score
+            #    scores += numeric_score
+            #except Exception:
+            #    print(f"Error scoring. Prompt: {user_prompt}, Response: {score}")
+            #    continue
         json.dump(data, f, indent=4)
-    scores /= len(data)
-    if do_printing:
-        print(f"Average score for {file}: {scores}")
+    #scores /= len(data)
+    #if do_printing:
+    #    print(f"Average score for {file}: {scores}")
 
 
 def print_avg_score_util(file, score_key="score"):

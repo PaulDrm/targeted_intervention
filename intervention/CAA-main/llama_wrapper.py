@@ -125,7 +125,7 @@ class LlamaWrapper:
             self.model_name_path, token=hf_token
         )
         self.model = AutoModelForCausalLM.from_pretrained(
-            self.model_name_path, token=hf_token, torch_dtype=t.float16, device_map="auto"
+            self.model_name_path, token=hf_token, torch_dtype=t.float16, device_map="cuda:0"
         )
         if override_model_weights_path is not None:
             self.model.load_state_dict(t.load(override_model_weights_path))
