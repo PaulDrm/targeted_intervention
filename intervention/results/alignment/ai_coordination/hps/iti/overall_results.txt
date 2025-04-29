@@ -1,0 +1,200 @@
+For dataset fold 0 and alpha 5.0 and heads 30_10_31_24_1_6_2_16_
+predict
+False    88
+True     12
+Name: count, dtype: int64
+final_answer
+(A)          53
+(B)          42
+undefined     5
+Name: count, dtype: int64
+For dataset fold 0 and alpha 5.0 and heads 30_10_31_24_1_6_2_16_31_25_2_2_0_8_1_15_
+predict
+False    91
+True      9
+Name: count, dtype: int64
+final_answer
+(A)          53
+(B)          44
+undefined     3
+Name: count, dtype: int64
+For dataset fold 0 and alpha 5.0 and heads 30_10_31_24_1_6_2_16_31_25_2_2_0_8_1_15_12_15_18_27_18_26_12_7_12_8_11_7_11_6_11_9_
+predict
+False    86
+True     14
+Name: count, dtype: int64
+final_answer
+(A)          53
+(B)          41
+undefined     6
+Name: count, dtype: int64
+For dataset fold 0 and alpha 5.0 and heads 30_10_31_24_1_6_2_16_31_25_2_2_0_8_1_15_12_15_18_27_18_26_12_7_12_8_11_7_11_6_11_9_27_9_5_29_5_25_3_4_3_24_4_7_13_27_11_25_18_6_11_8_11_22_11_20_11_19_11_17_10_24_20_6_
+predict
+False    87
+True     13
+Name: count, dtype: int64
+final_answer
+(A)          59
+(B)          37
+undefined     4
+Name: count, dtype: int64
+For dataset fold 0 and alpha 15.0 and heads 30_10_31_24_1_6_2_16_
+predict
+False    84
+True     16
+Name: count, dtype: int64
+final_answer
+(A)          54
+(B)          43
+undefined     3
+Name: count, dtype: int64
+For dataset fold 0 and alpha 15.0 and heads 30_10_31_24_1_6_2_16_31_25_2_2_0_8_1_15_
+predict
+False    91
+True      9
+Name: count, dtype: int64
+final_answer
+(A)          51
+(B)          43
+undefined     6
+Name: count, dtype: int64
+For dataset fold 0 and alpha 15.0 and heads 30_10_31_24_1_6_2_16_31_25_2_2_0_8_1_15_12_15_18_27_18_26_12_7_12_8_11_7_11_6_11_9_
+predict
+False    86
+True     14
+Name: count, dtype: int64
+final_answer
+(A)          55
+(B)          33
+undefined    12
+Name: count, dtype: int64
+For dataset fold 0 and alpha 15.0 and heads 30_10_31_24_1_6_2_16_31_25_2_2_0_8_1_15_12_15_18_27_18_26_12_7_12_8_11_7_11_6_11_9_27_9_5_29_5_25_3_4_3_24_4_7_13_27_11_25_18_6_11_8_11_22_11_20_11_19_11_17_10_24_20_6_
+predict
+False    84
+True     16
+Name: count, dtype: int64
+final_answer
+(A)          57
+(B)          30
+undefined    13
+Name: count, dtype: int64
+For dataset fold 0 and alpha 20.0 and heads 30_10_31_24_1_6_2_16_
+predict
+False    83
+True     17
+Name: count, dtype: int64
+final_answer
+(A)          54
+(B)          39
+undefined     7
+Name: count, dtype: int64
+For dataset fold 0 and alpha 20.0 and heads 30_10_31_24_1_6_2_16_31_25_2_2_0_8_1_15_
+predict
+False    85
+True     15
+Name: count, dtype: int64
+final_answer
+(A)          53
+(B)          38
+undefined     9
+Name: count, dtype: int64
+For dataset fold 0 and alpha 20.0 and heads 30_10_31_24_1_6_2_16_31_25_2_2_0_8_1_15_12_15_18_27_18_26_12_7_12_8_11_7_11_6_11_9_
+predict
+False    82
+True     18
+Name: count, dtype: int64
+final_answer
+(A)          59
+(B)          25
+undefined    16
+Name: count, dtype: int64
+For dataset fold 0 and alpha 20.0 and heads 30_10_31_24_1_6_2_16_31_25_2_2_0_8_1_15_12_15_18_27_18_26_12_7_12_8_11_7_11_6_11_9_27_9_5_29_5_25_3_4_3_24_4_7_13_27_11_25_18_6_11_8_11_22_11_20_11_19_11_17_10_24_20_6_
+predict
+False    85
+True     15
+Name: count, dtype: int64
+final_answer
+(A)          60
+(B)          27
+undefined    13
+Name: count, dtype: int64
+For dataset fold 0 and alpha 35.0 and heads 30_10_31_24_1_6_2_16_
+predict
+False    86
+True     14
+Name: count, dtype: int64
+final_answer
+(A)          56
+(B)          36
+undefined     8
+Name: count, dtype: int64
+For dataset fold 0 and alpha 35.0 and heads 30_10_31_24_1_6_2_16_31_25_2_2_0_8_1_15_
+predict
+False    82
+True     18
+Name: count, dtype: int64
+final_answer
+(A)          53
+(B)          41
+undefined     6
+Name: count, dtype: int64
+For dataset fold 0 and alpha 35.0 and heads 30_10_31_24_1_6_2_16_31_25_2_2_0_8_1_15_12_15_18_27_18_26_12_7_12_8_11_7_11_6_11_9_
+predict
+False    72
+True     28
+Name: count, dtype: int64
+final_answer
+(A)          52
+undefined    40
+(B)           8
+Name: count, dtype: int64
+For dataset fold 0 and alpha 35.0 and heads 30_10_31_24_1_6_2_16_31_25_2_2_0_8_1_15_12_15_18_27_18_26_12_7_12_8_11_7_11_6_11_9_27_9_5_29_5_25_3_4_3_24_4_7_13_27_11_25_18_6_11_8_11_22_11_20_11_19_11_17_10_24_20_6_
+predict
+False    86
+True     14
+Name: count, dtype: int64
+final_answer
+(A)          43
+undefined    36
+(B)          21
+Name: count, dtype: int64
+For dataset fold 0 and alpha 55.0 and heads 30_10_31_24_1_6_2_16_
+predict
+False    83
+True     17
+Name: count, dtype: int64
+final_answer
+(A)          52
+(B)          45
+undefined     3
+Name: count, dtype: int64
+For dataset fold 0 and alpha 55.0 and heads 30_10_31_24_1_6_2_16_31_25_2_2_0_8_1_15_
+predict
+False    91
+True      9
+Name: count, dtype: int64
+final_answer
+(A)          52
+(B)          44
+undefined     4
+Name: count, dtype: int64
+For dataset fold 0 and alpha 55.0 and heads 30_10_31_24_1_6_2_16_31_25_2_2_0_8_1_15_12_15_18_27_18_26_12_7_12_8_11_7_11_6_11_9_
+predict
+False    81
+True     19
+Name: count, dtype: int64
+final_answer
+undefined    60
+(A)          39
+(B)           1
+Name: count, dtype: int64
+For dataset fold 0 and alpha 55.0 and heads 30_10_31_24_1_6_2_16_31_25_2_2_0_8_1_15_12_15_18_27_18_26_12_7_12_8_11_7_11_6_11_9_27_9_5_29_5_25_3_4_3_24_4_7_13_27_11_25_18_6_11_8_11_22_11_20_11_19_11_17_10_24_20_6_
+predict
+False    88
+True     12
+Name: count, dtype: int64
+final_answer
+undefined    80
+(A)          13
+(B)           7
+Name: count, dtype: int64
