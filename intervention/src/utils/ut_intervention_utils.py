@@ -354,3 +354,56 @@ def get_interventions_dict_variable_alpha_no_norm(top_heads, alphas, tuning_acti
         interventions[f"model.layers.{layer}.self_attn.{module}"] = sorted(interventions[f"model.layers.{layer}.self_attn.{module}"], key = lambda x: x[0])
 
     return interventions
+
+def get_directions(model, df, args=None, id_column = "data_id", column = "activations"):
+
+    fold_index = 0
+
+    #### Purpose of this script is to process attention head activations from a dataframe
+    #### So for every unique data_id, it separates the attention head activations into different batches and labels
+    index_dic = {}
+
+    ## List of lists with attention head activations for each data_id examples
+    separated_activations = []
+
+    ## List of lists with labels for each data_id examples
+    separated_labels = []
+    data_ids_order = []
+
+    num_layers = model.config.num_hidden_layers 
+    num_heads = model.config.num_attention_heads
+
+    if hasattr(model.config, "head_dim"):
+        head_dim = model.config.head_dim
+    else:
+        head_dim = model.config.hidden_size // num_heads
+
+    for data_id in df[id_column].unique():
+
+        ## Necessary? --> used later when expanding train idxs and used for verbose logging
+        example_indexes = df[df[id_column] == data_id].index
+        ## Gives indexes for samples in the whole dataset
+        index_dic[data_id] = list(example_indexes)
+        ## Example: {'304_a': [0, 2], '304_b': [1, 3], '294_a': [4, 6], '294_b': [5, 7]} --> Dataset with 4 unique ids with 2 examples each
+        
+        temp_activations = df[df[id_column] == data_id][column]
+        
+        activations = np.array([list(sample.values()) for sample in temp_activations.values]) # [num_examples, num_layers x num_heads, head_dim]
+        
+        ## Number of example for the current data_id
+        number_examples = len(temp_activations)
+        
+        ## split into attention heads
+        example_activations = np.reshape(activations, (number_examples, num_layers, num_heads, head_dim))
+        example_labels =[1 if label==True else 0 for label in df[df[id_column] == data_id]['correct'].values]
+        
+        separated_activations.append(example_activations)
+        separated_labels.append(example_labels)
+        
+        data_ids_order.append(data_id)
+
+    train_set_idxs, val_set_idxs, test_idxs = get_fold_indices(fold_index, args, data_ids_order)
+    com_directions = get_com_directions(num_layers, num_heads, train_set_idxs, val_set_idxs, separated_activations, separated_labels)
+
+
+    return com_directions, separated_activations
