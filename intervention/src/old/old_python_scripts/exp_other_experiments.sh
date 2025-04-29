@@ -1,0 +1,1 @@
+./exp_sweep_bulk.sh experiments/golden_gate/config_llama_sweep_com.json

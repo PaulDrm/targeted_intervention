@@ -1,0 +1,5 @@
+#./exp_gpt4_truthfulqa_scoring.sh experiments/truthfulqa/truth_valid/truthful_validation.json
+
+./exp_gpt4_truthfulqa_scoring.sh experiments/truthfulqa/truth_valid/truthful_test_single_head_results_baseline.json
+
+./exp_gpt4_truthfulqa_scoring.sh experiments/truthfulqa/truth_valid/truthful_test_single_head_results_14_5_valid_false.json
