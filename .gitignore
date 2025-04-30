@@ -5,3 +5,4 @@
 **/capella/
 *.zip
 *.png
+*.env
