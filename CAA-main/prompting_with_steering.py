@@ -100,7 +100,6 @@ def process_item_open_ended(
         "raw_model_output": model_output,
     }
 
-
 def process_item_tqa_mmlu(
     item: Dict[str, str],
     model: LlamaWrapper,
@@ -156,6 +155,7 @@ def test_steering(
         "ab": get_ab_test_data(settings.behavior),
         "ab_cot": get_input(input_path),
         "open_ended": get_open_ended_test_data(settings.behavior),
+        #"open_ended": get_input(input_path),
         "truthful_qa": get_truthful_qa_data(),
         "mmlu": get_mmlu_data(),
     }
@@ -195,7 +195,7 @@ def test_steering(
                 print("Found existing", save_filename, "- skipping")
                 continue
             results = []
-            for item in tqdm(test_data, desc=f"Layer {layer}, multiplier {multiplier}"):
+            for item in tqdm(test_data[0:10], desc=f"Layer {layer}, multiplier {multiplier}"):
                 model.reset_all()
                 model.set_add_activations(
                     layer, multiplier * vector

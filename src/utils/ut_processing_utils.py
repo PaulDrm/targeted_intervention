@@ -13,6 +13,9 @@ from intervention.reasoning import extract_final_answer
 
 import llama
 
+import gemma3 
+import gemma2
+
 import copy
 
 import pandas as pd
@@ -193,30 +196,29 @@ def load_model(model_name, device="cuda:0"):
 
     print("Loading right tokenizer!")
 
-    LOAD_8BIT = False #True
     BASE_MODEL = model_name
 
-    #tokenizer = llama.LlamaTokenizer.from_pretrained(BASE_MODEL)
     multi_check = False
     if type(device) == list:
         multi_check =True
         num_gpus = len(device)
         device = torch.device("cuda:0")
 
-    #tokenizer = AutoTokenizer.from_pretrained(BASE_MODEL)
     tokenizer = AutoTokenizer.from_pretrained(BASE_MODEL, padding_side="left")
-    model = llama.LlamaForCausalLM.from_pretrained(BASE_MODEL, low_cpu_mem_usage=True, 
-                                                   load_in_8bit=LOAD_8BIT,
-                                                   torch_dtype=torch.bfloat16,
-                                                   device_map=device)
+    
+
+    model = AutoModelForCausalLM.from_pretrained(BASE_MODEL, low_cpu_mem_usage=True, 
+                                                torch_dtype=torch.bfloat16,
+                                                device_map=device)
     
     # ── Detect which Llama generation we have ──────────────────────────────
-    is_llama3 = (
-        tokenizer.vocab_size > 100_000                # 128 k vocab
-        or tokenizer.bos_token.startswith("<|begin")  # <|begin_of_text|>
-    )
+    is_llama3 = False
+    if tokenizer.bos_token!= None:
+        is_llama3 = (
+            
+        tokenizer.bos_token.startswith("<|begin")  # <|begin_of_text|>
+        )
     is_llama2 = tokenizer.bos_token == "<s>"          # classic Llama BOS
-
 
     # ── Apply the right padding / EOS settings ─────────────────────────────
     if is_llama3:
@@ -228,24 +230,6 @@ def load_model(model_name, device="cuda:0"):
     elif is_llama2:
         # For Llama-2 chat checkpoints the safest pad is the unknown token
         tokenizer.pad_token = tokenizer.unk_token     # "<unk>"
-
-    # if "Meta-Llama-3-8B-Instruct" in model.config._name_or_path:
-    
-    
-    #     model.generation_config.pad_token_id = 128009#32007
-        
-    #     tokenizer.eos_token_id = 128009
-    #     tokenizer.pad_token = tokenizer.eos_token
-    
-    # elif "Llama-2-7b-chat-hf" in model.config._name_or_path:
-        
-    #     tokenizer.pad_token = "<unk>"
-        #chat_template = "{% if messages[0]['role'] == 'system' %}{% set loop_messages = messages[1:] %}{% set system_message = messages[0]['content'] %}{% else %}{% set loop_messages = messages %}{% set system_message = false %}{% endif %}{% for message in loop_messages %}{% if (message['role'] == 'user') != (loop.index0 % 2 == 0) %}{{ raise_exception('Conversation roles must alternate user/assistant/user/assistant/...') }}{% endif %}{% if loop.index0 == 0 and system_message != false %}{% set content = '<<SYS>>\\n' + system_message + '\\n<</SYS>>\\n\\n' + message['content'] %}{% else %}{% set content = message['content'] %}{% endif %}{% if message['role'] == 'user' %}{{ bos_token + ' [INST] ' + content.strip() + ' [/INST]' }}{% elif message['role'] == 'assistant' %}{{ ' '  + content.strip() + ' ' + eos_token }}{% endif %}{% endfor %}"
-        #tokenizer.chat_template = chat_template
-
-    # if multi_check:
-    #     print(f"Using {num_gpus} GPUs with DataParallel")
-    #     model = nn.DataParallel(model, device_ids=list(range(num_gpus)))
 
     return tokenizer, model 
 
@@ -305,7 +289,7 @@ def flattened_idx_to_layer_head(flattened_idx, num_heads):
 def layer_head_to_flattened_idx(layer, head, num_heads):
     return layer * num_heads + head
 
-def prepare_prompt(prompt, tokenizer, dataset_name=None, verbose= False):
+def prepare_prompt(prompt, tokenizer, dataset_name=None, verbose= False, suffix=""):
     if dataset_name == "requirements_data":
         chat_dict = [
             {"role": "user", "content": prompt},
@@ -316,24 +300,27 @@ def prepare_prompt(prompt, tokenizer, dataset_name=None, verbose= False):
             print(chat_dict)
         prompt = tokenizer.apply_chat_template(chat_dict, tokenize=False, add_generation_prompt=False)
         prompt = prompt[:-len(tokenizer.eos_token)]
-    # else:
-    #     chat_dict = [
-    #         {"role": "user", "content": prompt},
-    #         {"role": "assistant", "content": "Let's analyze the problem step-by-step:"}
-    #     ]
-    #     #prompt = tokenizer.apply_chat_template(chat_dict, tokenize=False, add_generation_prompt=True)
-    #     prompt = tokenizer.apply_chat_template(chat_dict, tokenize=False, add_generation_prompt=False, continue_final_message=True)
-
+    
     else:
-        chat_dict = [
-            {"role": "user", "content": prompt}
-        #    {"role": "assistant", "content": "Let's analyze the problem step-by-step:"}
-        ]
-        if verbose:
-            print(chat_dict)
-        prompt = tokenizer.apply_chat_template(chat_dict, tokenize=False, add_generation_prompt=True)
-        #prompt = tokenizer.apply_chat_template(chat_dict, tokenize=False, add_generation_prompt=False, continue_final_message=True)
 
+        if suffix == "":
+            chat_dict = [
+                {"role": "user", "content": prompt}
+            #    {"role": "assistant", "content": "Let's analyze the problem step-by-step:"}
+            ]
+            if verbose:
+                print(chat_dict)
+            prompt = tokenizer.apply_chat_template(chat_dict, tokenize=False, add_generation_prompt=True)
+        
+        else:
+            chat_dict = [
+            {"role": "user", "content": prompt},
+            {"role": "assistant", "content": suffix}
+            ]
+            
+            if verbose:
+                print(chat_dict)
+            prompt = tokenizer.apply_chat_template(chat_dict, tokenize=False, add_generation_prompt=False, continue_final_message=True)
 
     return prompt
 
@@ -349,17 +336,18 @@ def generate_input_output_prompt(row, tokenizer):
 
 def parse_output(output, prompt, tokenizer):
 
-
     #print("Function parse_output: ", output)
-
     encoded_prompt = tokenizer.encode(prompt, add_special_tokens=False)
     encoded_output = tokenizer.encode(output, add_special_tokens=False)
 
     #print("PAD Token ID: ", tokenizer.pad_token_id)
-    encoded_output = [i for i in encoded_output if i!= tokenizer.pad_token_id]
+    encoded_prompt = [i for i in encoded_prompt if i!= tokenizer.pad_token_id and i != tokenizer.eos_token_id]
+    
+    encoded_output = [i for i in encoded_output if i!= tokenizer.pad_token_id and i != tokenizer.eos_token_id]
+    encoded_output = encoded_output + [tokenizer.eos_token_id]
     
     #print(encoded_prompt)
-    is_llama2 = tokenizer.bos_token == "<s>"          # classic Llama BOS
+    is_llama2 = tokenizer.bos_token == "<s>" and tokenizer.vocab_size < 130000          # classic Llama BOS
 
     if is_llama2:
         ## This is neccesary because tokenizer.chat_template doesn't add a line space between <s> [INST], which is not the case in the normal tokenizer
@@ -424,7 +412,7 @@ def extract_final_answer_dataset(output, cot=True, internal_cot=False, dataset='
 
     return final_answer, predict
 
-def process_data(df, model, id_column="data_id"):
+def process_data(df, model, id_column="data_id", verbose =False):
     
     #### Purpose of this script is to process attention head activations from a dataframe
     #### So for every unique data_id, it separates the attention head activations into different batches and labels
@@ -443,7 +431,7 @@ def process_data(df, model, id_column="data_id"):
     num_heads = model.config.num_attention_heads
     
     
-    if hasattr(model.config, "head_dim"):
+    if hasattr(model.config, "head_dim"): #and not model.config.model_type == "gemma2":
         head_dim = model.config.head_dim
     else:
         head_dim = model.config.hidden_size // num_heads
@@ -466,6 +454,12 @@ def process_data(df, model, id_column="data_id"):
         example_activations = np.reshape(activations, (number_examples, num_layers, num_heads, head_dim))
         example_labels =[1 if label==True else 0 for label in df[df[id_column] == data_id]['correct'].values]
         
+        if verbose: 
+
+            print(data_id)
+            print(df[df[id_column] == data_id]['correct'].values)
+            print(example_labels)
+
         separated_activations.append(example_activations)
         separated_labels.append(example_labels)
         
@@ -624,11 +618,28 @@ def prepare_test_set(test_set, args):
 
 def get_activations_bau(model, prompt, device): 
 
+    if hasattr(model.config, "num_hidden_layers"):
+        num_layers = model.config.num_hidden_layers
+
+    else: 
+        num_layers = model.config.text_config.num_hidden_layers
+        
     #HEADS = [f"model.layers.{i}.self_attn.head_out" for i in range(model.config.num_hidden_layers)]
     ## https://github.com/likenneth/honest_llama/issues/7
-    HEADS = [f"model.layers.{i}.self_attn.o_proj" for i in range(model.config.num_hidden_layers)]
+    
+    if hasattr(model.model, "language_model"):
+        HEADS = [f"model.language_model.layers.{i}.self_attn.o_proj" for i in range(num_layers)]
+
+    #elif model.config.model_type == "gemma2":
+
+    #    HEADS = [f"model.layers.{i}.attn_norm_out" for i in range(num_layers)]
+    
+    else:  
+        HEADS = [f"model.layers.{i}.self_attn.o_proj" for i in range(num_layers)]
     #O_PROJ = [f"model.layers.{i}.self_attn.o_proj_out" for i in range(model.config.num_hidden_layers)]
     
+    #MLPS = [f"model.layers.{i}.mlp" for i in range(model.config.num_hidden_layers)]
+
     #MLPS = [f"model.layers.{i}.mlp" for i in range(model.config.num_hidden_layers)]
     #print(HEADS)
 
@@ -685,7 +696,7 @@ def get_attention_activations(df, tokenizer, model, function = get_activations_b
     attentions = []
     o_proj_activations_list = []
     
-    device = "cuda:0"
+    device = model.device
 
     for prompt in tqdm(prompts):
         temp = {}
@@ -695,16 +706,38 @@ def get_attention_activations(df, tokenizer, model, function = get_activations_b
         layer_wise_activations, head_wise_activations  = function(model, prompt, device)
 
         ## transform output in original representation after attention head 
-        num_layers = model.config.num_hidden_layers
-        num_heads = model.config.num_attention_heads
+        if hasattr(model.config, "num_hidden_layers"):
+            num_layers = model.config.num_hidden_layers
+
+        else:
+            num_layers = model.config.text_config.num_hidden_layers
+        
+        if hasattr(model.config, "num_attention_heads"):
+        
+            num_heads = model.config.num_attention_heads
+
+        else: 
+            num_heads = model.config.text_config.num_attention_heads
+        
         sequence_length = len(prompt[0])
         #print("Printing from get_attention_activations function")
         #print(sequence_length)
         
-        if hasattr(model.config, "head_dim"):
-            dimension_of_heads = model.config.head_dim
+        
+        if hasattr(model.config, "text_config"):
+            
+            if hasattr(model.config.text_config, "head_dim"):
+
+                dimension_of_heads = model.config.text_config.head_dim
+            
+            else: 
+                dimension_of_heads = model.config.text_config.hidden_size // num_heads
         else:
-            dimension_of_heads = model.config.hidden_size // num_heads
+            if hasattr(model.config, "head_dim"):# and not model.config.model_type == "gemma2":
+
+                dimension_of_heads = model.config.head_dim
+            else:
+                dimension_of_heads = model.config.hidden_size // num_heads
 
 
         #print(head_wise_activations.shape) ## [Layers, sequence_length, hidden_size]

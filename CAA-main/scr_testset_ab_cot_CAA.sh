@@ -1,7 +1,9 @@
 #input_path="../datasets/ai_coordination/dataset_train_subset_ab_cot.json"
 input_path="../datasets/ai_coordination/dataset_testset_ab_cot.json"
-output_path="../results/test_set_open_ended/caa" #"../results/test_set_cot_ab/caa"
-type="open_ended" #"ab_cot"
+input_path="../datasets/ai_coordination/test/dataset_testset_ab_cot.json"
+
+output_path="../results/test_set_open_ended/overall/caa_control" #"../results/test_set_cot_ab/caa"
+type="ab_cot" #"open_ended" #
 # Define the arrays
 multipliers=(1)
 layers=(12)

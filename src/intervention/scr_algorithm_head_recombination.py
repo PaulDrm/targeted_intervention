@@ -10,12 +10,12 @@ import ast
 import json
 
 
-from ut_intervention_utils import (run_llama_intervention_batch_parallel,
+from utils.ut_intervention_utils import (run_llama_intervention_batch_parallel,
                                    get_com_directions,
                                    get_interventions_dict_variable_alpha
 )
 
-from ut_processing_utils import (load_model,
+from utils.ut_processing_utils import (load_model,
                                 select_device, 
                                 prepare_test_set,
                                 process_data,
@@ -24,7 +24,7 @@ from ut_processing_utils import (load_model,
                                 ParseListOfLists
 )
 
-from ut_evaluation_utils import evaluate_configuration, append_to_log_file
+from utils.ut_evaluation_utils import evaluate_configuration, append_to_log_file
 
 def optimize_alpha_for_heads(
     args,

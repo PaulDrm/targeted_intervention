@@ -32,3 +32,16 @@ For more details, see our papers:
 ## Usage
 
 Example usage can be found in folder `notebooks/ai_coordination/011_run_intervention_model.ipynb`
+
+## Identified steering heads
+
+| Domain            | Model      | Heads                         |
+|-------------------|------------|-------------------------------|
+| AI Coordination   | Llama 2 7b | L13H12 L14H19 L15H28 L16H3    |
+| AI Coordination   | Ministral 8B | L15H21                        |
+| AI Coordination   | Phi-3      | L17H18, L21H20                |
+| AI Coordination   | Llama-3 8B   | L12H23, L17H17                |
+| Corrigibility     | Llama-2 7b   | L13H12                        |
+| Survival Instinct | Llama-2 7b   | L14H2                         |
+
+

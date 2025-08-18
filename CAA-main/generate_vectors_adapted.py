@@ -92,7 +92,7 @@ def generate_save_vectors_for_behavior(
     #     model.use_chat,
     # )
 
-    data_path =  "../datasets/ai_coordination/dataset_307_selection_attentions.json"
+    data_path =  "../datasets/ai_coordination/train/dataset_304_294_307_selection_clean.json"#../datasets/ai_coordination/dataset_307_selection_attentions.json"
     model_name =  "meta-llama/Llama-2-7b-chat-hf"
 
     tokenizer = AutoTokenizer.from_pretrained(model_name)
@@ -140,6 +140,7 @@ def generate_save_vectors_for_behavior(
             get_vector_path(behavior, layer, model.model_name_path),
         )
         if save_activations:
+            print("lol")
             t.save(
                 all_pos_layer,
                 get_activations_path(behavior, layer, model.model_name_path, "pos"),

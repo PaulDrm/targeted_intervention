@@ -350,11 +350,24 @@ def evaluate_configuration_requirements(args, tokenizer, model, heads, alphas, e
             
             print(f"Evaluating configuration for head {heads} with alphas {alphas} for seed {args.seed} and fold {fold_index}")
             
-            # Prepare the interventions dictionary
-            interventions = get_interventions_dict_variable_alpha(
-                heads, alphas, tuning_activations, num_heads, args.use_center_of_mass,
-                args.use_random_dir, com_directions
-            )
+
+
+            #if model.config.model_type == "gemma2":
+            
+            if model.config.model_type == "lol":
+
+
+                # Prepare the interventions dictionary
+                interventions = get_interventions_dict_variable_alpha(
+                    heads, alphas, tuning_activations, num_heads, args.use_center_of_mass,
+                    args.use_random_dir, com_directions, key_template= "model.layers.{layer}.attn_norm_out"
+                )
+            
+            else: 
+
+                interventions = get_interventions_dict_variable_alpha(
+                    heads, alphas, tuning_activations, num_heads, args.use_center_of_mass,
+                    args.use_random_dir, com_directions                )
 
             if external_test_set is None:
                 print("Test indexes are: ", test_idxs)
@@ -491,8 +504,95 @@ def extract_answer_compare_gt(args, dataset):
     
     return dataset
 
+def save_results(args, heads , alphas, fold_index, results, metrics):
+
+    output_string = f"{args.output_path}/results_intervention_seed_{int(args.seed)}_alpha_{str(round(alphas[0],2)).replace('.', '_')}"
+
+    results['heads'] = [heads for _ in range(len(results))]
+    results['alphas'] = [heads for _ in range(len(results))]
+
+    if not hasattr(args, 'layer'):            
+
+        layer = heads[0][0]
+        head_string = ""
+        for head in heads:#list_of_heads:
+            head_string = head_string + str(head[0]) + "_"+ str(head[1]) + "_"
+
+        #curr_fold_results.to_json(f"{args.output_path}/results_test_intervention_seed_{int(args.seed)}_alpha_{str(round(alphas[0],2)).replace('.', '_')}_heads_{head_string}_fold_{fold_index}.json", orient='records', indent=4)
+        output_string += f"_heads_{head_string}"
+    else:
+        
+        if hasattr(args, 'head'):            
+            #curr_fold_results.to_json(f"{args.output_path}/results_test_intervention_seed_{int(args.seed)}_alpha_{str(round(alphas[0],2)).replace('.', '_')}_head_{args.layer}_{args.head}_fold_{fold_index}.json", orient='records', indent=4)
+            output_string += f"_head_{args.layer}_{args.head}"
+
+        else: 
+            #curr_fold_results.to_json(f"{args.output_path}/results_test_intervention_seed_{int(args.seed)}_alpha_{str(round(alphas[0],2)).replace('.', '_')}_layer_{args.layer}_fold_{fold_index}.json", orient='records', indent=4)
+
+            output_string += f"_layer_{args.layer}"
+
+    if hasattr(args, 'consistency_factor'):
+        if args.consistency_factor!= 1:
+            output_string += f"const_factor_{args.consistency_factor}"
+
+    output_string += f"_fold_{fold_index}.json"
+    try:
+        results.to_json(output_string, orient='records', indent=4)
+    except OSError as e: ## file name too long 
+        print(f"Error occurred while writing to {output_string}: {e}")
+        # Split the original file name if it's too long
+        base_name, ext = os.path.splitext(output_string)
+        split_point = len(base_name) // 2
+        shortened_name = base_name[:split_point] + base_name[split_point + 1:]  # Simplify by truncating middle
+        fallback_file_name = shortened_name[:50] + ext  # Ensure a reasonable length for the fallback name
+        results.to_json(fallback_file_name, orient='records', indent=4)
+
+    if args.prompt_type!= "open_ended":
+
+        value_counts = results.predict.value_counts().to_dict()
+        value_counts['alpha'] = alphas#args.alpha
+        value_counts['layer'] = args.layer if hasattr(args, 'layer') else layer
+        value_counts['seed'] = args.seed
+        value_counts['metrics'] = metrics
+        
+        if "length_normalized_entropy" in results.columns: 
+            value_counts['length_normalized_entropy'] = results.length_normalized_entropy.sum()
+
+        #if args.head != None: 
+        if hasattr(args, 'head'):
+            value_counts['head'] = args.head
+        
+        elif heads: 
+            value_counts['head'] = heads
+
+        if hasattr(args, 'consistency_factor'):
+            value_counts['consistency_factor'] = args.consistency_factor
+
+        # Path to your JSON file
+        json_file_path = f'{args.output_path}/overall_results.json'
+        
+        # Load existing data from the JSON file
+        try:
+            
+            with open(json_file_path, 'r') as file:
+                data = json.load(file)
+
+        except FileNotFoundError:
+            data = []
+
+        # Add the new data to the existing list (or create a new list if the file was not found)
+        data.append(value_counts)
+
+        # Write the updated data back to the JSON file
+        with open(json_file_path, 'w') as file:
+            json.dump(data, file, indent=4)
+
+
 def evaluate_configuration_general(args, tokenizer, model, heads, alphas, dataset, external_test_set =None):
     
+
+    verbose = False
+
     num_layers = model.config.num_hidden_layers 
     num_heads = model.config.num_attention_heads
     #head_dim = model.config.head_dim
@@ -511,18 +611,12 @@ def evaluate_configuration_general(args, tokenizer, model, heads, alphas, datase
     # Process the data
     index_dic, separated_activations, separated_labels, data_ids_order = process_data(dataset, model)
 
-    # # Create folds
-    # number_of_examples = np.arange(len(data_ids_order)) 
-    
-    # #print(args.num_fold)
-    # fold_idxs = np.array_split(number_of_examples, args.num_fold)
-
-    # Run the experiment for each fold
-
     overall_results = []
-
+    
     for fold_index in range(args.num_fold):
-
+        
+        print(f"Evaluating configuration for head {heads} with alphas {alphas} for seed {args.seed} and fold {fold_index}")
+    
         #layer = None
         #heads = None
 
@@ -530,31 +624,48 @@ def evaluate_configuration_general(args, tokenizer, model, heads, alphas, datase
             break
 
         # Determine train, validation, and test sets
-        train_idxs, val_set_idxs, test_idxs = get_fold_indices(fold_index, args, data_ids_order) #fold_idxs,
+        train_idxs, val_set_idxs, test_idxs = get_fold_indices(fold_index, args, data_ids_order, verbose=False) #fold_idxs,
         
-        ## verbose logging to sanity check train_set 
-        print("Train indexes are: ", train_idxs)
         train_index_expanded = np.concatenate([list(index_dic.values())[i] for i in train_idxs])
         train_set = dataset.loc[train_index_expanded]
-        print("Train labels are: ", train_set.correct.values)
-        print("Shape of train set is :", len(train_idxs))
+        if verbose: 
+            ## verbose logging to sanity check train_set 
+            print("Train indexes are: ", train_idxs)
+            print("Train labels are: ", train_set.correct.values)
+            print("Shape of train set is :", len(train_idxs))
+            
+        com_directions = get_com_directions(num_layers, num_heads, train_idxs, val_set_idxs, separated_activations, separated_labels) #if args.use_center_of_mass else None
+        
+        #print("Printing from evaluate_configuration_general")
+        #print(com_directions)
+
         # Get the top heads
         top_heads= heads# args.list_of_heads
-        print("Heads intervened: ", sorted(top_heads))            
+        #print("Heads intervened: ", sorted(top_heads))            
         
         # Get the interventions
         tuning_activations = np.concatenate(separated_activations, axis=0)
-        com_directions = get_com_directions(num_layers, num_heads, train_idxs, val_set_idxs, separated_activations, separated_labels) if args.use_center_of_mass else None
         
-        print(f"Evaluating configuration for head {heads} with alphas {alphas} for seed {args.seed} and fold {fold_index}")
-        
-        # Prepare the interventions dictionary
-        interventions = get_interventions_dict_variable_alpha(
-            heads, alphas, tuning_activations, num_heads, args.use_center_of_mass,
-            args.use_random_dir, com_directions
-        )
+
+        # # Prepare the interventions dictionary
+        # interventions = get_interventions_dict_variable_alpha(
+        #     heads, alphas, tuning_activations, num_heads, args.use_center_of_mass,
+        #     args.use_random_dir, com_directions
+        # )
 
         #print("Interventions: ", interventions)
+
+        if model.config.model_type == "lol":
+                # Prepare the interventions dictionary
+                interventions = get_interventions_dict_variable_alpha(
+                    heads, alphas, tuning_activations, num_heads, args.use_center_of_mass,
+                    args.use_random_dir, com_directions, key_template= "model.layers.{layer}.attn_norm_out"
+                )
+        else: 
+
+            interventions = get_interventions_dict_variable_alpha(
+                heads, alphas, tuning_activations, num_heads, args.use_center_of_mass,
+                args.use_random_dir, com_directions                )
 
 
         if external_test_set is None:
@@ -572,9 +683,10 @@ def evaluate_configuration_general(args, tokenizer, model, heads, alphas, datase
         test_set = test_set.iloc[0:int(test_set.shape[0])]# #6] # int(test_set.shape[0])]#int(test_set.shape[0])]
         #print(test_set.iloc[0:6])
         if test_set.shape[0] == 1:
+            ### TODO Intervention function??
             results = run_llama_intervention_batch(args, tokenizer, model, interventions, test_set)
         else:
-            results = run_llama_intervention_batch(args, tokenizer, model, interventions, lt_modulated_vector_no_alpha, test_set, batch_size=2)
+            results = run_llama_intervention_batch(args, tokenizer, model, interventions, lt_modulated_vector_no_alpha, test_set, batch_size=args.batch_size)
         
         for result in results:
             overall_results.append(result)
@@ -698,6 +810,7 @@ def append_to_log_file(args, filename, log_entry):
     # Convert log_entry to a DataFrame and append to CSV
     log_df = pd.DataFrame([log_entry])
     filename = f"{args.output_path}/{filename}"
+    print(f"Appending to log file: {filename}...")
     if not os.path.exists(filename) or os.stat(filename).st_size == 0:
         log_df.to_csv(filename, mode="w", index=False)
     else:

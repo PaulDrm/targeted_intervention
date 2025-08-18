@@ -339,7 +339,7 @@ def run_llama_intervention_batch(args, tokenizer, model, interventions, interven
 
     results = []
 
-    batch_size = 2
+    #batch_size = 2
     for start_idx in tqdm(range(0, len(dataset), batch_size)):
 
         end_idx = min(start_idx + batch_size, len(dataset))
@@ -348,7 +348,7 @@ def run_llama_intervention_batch(args, tokenizer, model, interventions, interven
         prompts = batch.prompt.values.tolist() #row[1].prompt
 
         prompts_processed = [
-            prepare_prompt(prompt, tokenizer, args.dataset_name, args.prompt_type) 
+            prepare_prompt(prompt, tokenizer, args.dataset_name, args.prompt_type, args.suffix) 
             for prompt in batch.prompt.values.tolist()
         ]
 
@@ -365,15 +365,16 @@ def run_llama_intervention_batch(args, tokenizer, model, interventions, interven
         **generation_args, 
         )
 
+        print("Output: ", output[0])
         # Extract scores (logits) for each generated token
-        logits = torch.stack(output[1].scores, dim=1)  # (batch_size, seq_length, vocab_size)
+        #logits = torch.stack(output[1].scores, dim=1)  # (batch_size, seq_length, vocab_size)
         # Apply softmax to logits to get probabilities
-        probs = torch.softmax(logits, dim=-1)
+        #probs = torch.softmax(logits, dim=-1)
         # Compute entropy for each token
-        token_entropy = -torch.sum(probs * torch.log(probs + 1e-12), dim=-1)  # (batch_size, seq_length)
+        #token_entropy = -torch.sum(probs * torch.log(probs + 1e-12), dim=-1)  # (batch_size, seq_length)
         # Normalize entropy by sequence length
-        seq_lengths = token_entropy.size(1)  # Length of each sequence
-        length_normalized_entropy = token_entropy.sum(dim=1) / seq_lengths  # Normalize (batch_size)
+        #seq_lengths = token_entropy.size(1)  # Length of each sequence
+        #length_normalized_entropy = token_entropy.sum(dim=1) / seq_lengths  # Normalize (batch_size)
         #print(f"Length normalized entropy: {length_normalized_entropy}")
         # Using list comprehension to process the outputs
         new_outputs = [parse_output(out, prompts_processed[i], tokenizer) for i, out in enumerate(output[0])]
@@ -395,6 +396,7 @@ def run_llama_intervention_batch(args, tokenizer, model, interventions, interven
                         "gt": row.get("gt", None)
             })
             # if args.prompt_type != "open_ended" else None 
+    
     return results
 
 

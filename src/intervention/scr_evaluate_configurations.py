@@ -252,7 +252,13 @@ def main():
     for arg, value in vars(args).items():
         print(f"{arg}: {value}")
 
-    tokenizer, model = load_model(args.model_name)
+
+    # 1. Load Model and Tokenizer
+    print(f"Loading model: {args.model_name}")
+
+    device = "auto"
+
+    tokenizer, model = load_model(args.model_name, device)
 
     log = []
 

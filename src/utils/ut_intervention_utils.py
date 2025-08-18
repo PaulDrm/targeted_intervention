@@ -5,7 +5,7 @@ import numpy as np
 
 from einops import rearrange
 
-from utils.ut_processing_utils import layer_head_to_flattened_idx, flattened_idx_to_layer_head, prepare_prompt, extract_final_answer_dataset
+from utils.ut_processing_utils import layer_head_to_flattened_idx, flattened_idx_to_layer_head, prepare_prompt, extract_final_answer_dataset, get_fold_indices
 
 import sys 
 sys.path.append('../')
@@ -176,6 +176,8 @@ def train_probes(seed, train_set_idxs, val_set_idxs, separated_head_wise_activat
 
 def lt_modulated_vector_add(head_output, layer_name, interventions = {}, args = None, start_edit_location='lt'):#, add_proj_val_std = args.add_proj_val_std ): 
 
+        ## applies same alpha to all heads 
+
         head_output = rearrange(head_output, 'b s (h d) -> b s h d', h=args.num_heads)
         for head, direction, proj_val_std in interventions[layer_name]:
             #print(head)
@@ -195,18 +197,18 @@ def lt_modulated_vector_add(head_output, layer_name, interventions = {}, args = 
 
 def lt_modulated_vector_no_alpha(head_output, layer_name, interventions = {}, args = None, start_edit_location='lt'): 
         
+        ## alphas have already been applied during direction calculation
         head_output = rearrange(head_output, 'b s (h d) -> b s h d', h=args.num_heads)
+
         for head, direction, proj_val_std in interventions[layer_name]:
+            #print(layer_name)
             #print(head)
             #print(direction)
             direction_to_add = torch.tensor(direction).to(head_output.device.index)
-            #print(direction_to_add)
-            if start_edit_location == 'lt': 
-        
-                head_output[:, -1, head, :] += proj_val_std * direction_to_add
-                
-            else: 
 
+            if start_edit_location == 'lt': 
+                head_output[:, -1, head, :] += proj_val_std * direction_to_add
+            else: 
                 head_output[:, start_edit_location:, head, :] +=  proj_val_std * direction_to_add
         
         head_output = rearrange(head_output, 'b s h d -> b s (h d)')
@@ -309,6 +311,71 @@ def get_interventions_dict_variable_alpha(top_heads, alphas, tuning_activations,
         interventions[f"model.layers.{layer}.self_attn.{module}"] = sorted(interventions[f"model.layers.{layer}.self_attn.{module}"], key = lambda x: x[0])
 
     return interventions
+
+import numpy as np
+
+def get_interventions_dict_variable_alpha(
+        top_heads,
+        alphas,
+        tuning_activations,
+        num_heads,
+        use_center_of_mass,
+        use_random_dir,
+        com_directions,
+        *,
+        module: str = "o_proj",
+        key_template: str = "model.layers.{layer}.self_attn.{module}",
+):
+    """
+    Build the interventions dictionary.
+
+    `key_template` must include {layer}. It may also include {module}.
+    """
+
+    def key_for(layer_val: int) -> str:
+        """Create the dict key for a given layer number."""
+        if "{module}" in key_template:
+            return key_template.format(layer=layer_val, module=module)
+        return key_template.format(layer=layer_val)
+
+    # Pre-create all keys so they appear in a stable order
+    interventions = {}
+    for layer, _ in top_heads:
+        key = key_for(int(layer))
+        if key not in interventions:          # avoid overwriting if repeated
+            interventions[key] = []
+
+    for (layer, head), alpha in zip(top_heads, alphas):
+        layer = int(layer)
+        head = int(head)
+        key = key_for(layer)
+
+        # Pick a direction vector
+        if use_center_of_mass:
+            direction = com_directions[layer_head_to_flattened_idx(layer, head, num_heads)]
+        elif use_random_dir:
+            direction = np.random.normal(size=(128,))
+        else:
+            raise ValueError("Set either use_center_of_mass or use_random_dir to True")
+
+        direction = direction / np.linalg.norm(direction)
+
+        # Project activations onto this direction
+        activations = tuning_activations[:, layer, head, :direction.shape[-1]]
+        proj_vals = activations @ direction.T
+        proj_val_std = np.std(proj_vals)
+
+        # Add entry to the dict
+        if key not in interventions:
+            interventions[key] = []
+        interventions[key].append((head, direction.squeeze(), alpha * proj_val_std))
+
+    # Sort heads inside each layer for stable order
+    for key in interventions:
+        interventions[key].sort(key=lambda x: x[0])
+
+    return interventions
+
 
 def get_interventions_dict_variable_alpha_no_norm(top_heads, alphas, tuning_activations, num_heads, use_center_of_mass, use_random_dir, com_directions): 
 
